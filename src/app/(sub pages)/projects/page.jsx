@@ -1,5 +1,8 @@
 import Image from "next/image";
 import bg from "../../../../public/background/projects-background.png";
+import ProjectList from "@/components/projects/Projects";
+import RenderModel from "@/components/RenderModel";
+import { projectsData } from "@/app/data";
 
 export default function Home() {
   return (
@@ -13,6 +16,13 @@ export default function Home() {
       />
 
       {/* Render projectslist - make database integration */}
+      <ProjectList projects={projectsData} />
+
+      <div className="flex items-center justify-center fixed  top-16  lg:top-20 -translate-x-1/2 lg:translate-x-0 -z-10 left-1/2 lg:-left-24 h-screen">
+        <RenderModel>
+          {/* Here I will generate 3d-models  */} <></>
+        </RenderModel>
+      </div>
     </>
   );
 }

@@ -1,4 +1,4 @@
-import HomeBtn from "@/app/components/HomeButton";
+import HomeBtn from "@/components/HomeButton";
 
 export default function SubPagesLayout({ children }) {
   return (

@@ -1,5 +1,5 @@
 "use client";
-import NavButton from "@/app/components/navigation/NavButton";
+import NavButton from "@/components/navigation/NavButton";
 import { BtnList } from "@/app/data";
 import React from "react";
 

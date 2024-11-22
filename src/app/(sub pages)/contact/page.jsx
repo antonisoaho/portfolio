@@ -1,6 +1,6 @@
 import Image from "next/image";
 import bg from "../../../../public/background/contact-background.png";
-import Form from "@/app/components/contact/Form";
+import Form from "@/components/contact/Form";
 
 export const metadata = {
   title: "Contact",

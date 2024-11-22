@@ -22,3 +22,13 @@ export const BtnList = [
     newTab: true,
   },
 ];
+
+export const projectsData = [
+  {
+    id: 1,
+    name: "GoLife",
+    description: "Find out your financial status",
+    date: "2024-08-15",
+    demoLink: "",
+  },
+];
