@@ -1,5 +1,6 @@
 import Image from "next/image";
 import bg from "../../../../public/background/about-background.png";
+import AboutDetails from "@/components/about/About";
 
 export const metadata = {
   title: "About",
@@ -26,6 +27,8 @@ export default function Home() {
       </div>
 
       {/* Here I will put aboutdetails in component */}
+
+      <AboutDetails />
     </div>
   );
 }
