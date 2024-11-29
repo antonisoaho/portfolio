@@ -15,12 +15,12 @@ export const BtnList = [
     icon: "linkedin",
     newTab: true,
   },
-  {
-    label: "Resume",
-    link: "/resume.pdf",
-    icon: "resume",
-    newTab: true,
-  },
+  // {
+  //   label: "Resume",
+  //   link: "/resume.pdf",
+  //   icon: "resume",
+  //   newTab: true,
+  // },
 ];
 
 export const projectsData = [

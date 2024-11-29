@@ -3,6 +3,9 @@ import bg from "../../../../public/background/projects-background.png";
 import ProjectList from "@/components/projects/Projects";
 import RenderModel from "@/components/RenderModel";
 import { projectsData } from "@/app/data";
+// import dynamic from "next/dynamic";
+
+// const Model = dynamic(() => import(""), { srr: false});
 
 export const metadata = {
   title: "Projects",

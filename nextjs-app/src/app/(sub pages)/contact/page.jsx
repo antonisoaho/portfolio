@@ -1,7 +1,9 @@
 import Image from "next/image";
 import bg from "../../../../public/background/contact-background.png";
 import Form from "@/components/contact/Form";
+// import dynamic from "next/dynamic";
 
+// const Model = dynamic(() => import(""), { srr: false});
 export const metadata = {
   title: "Contact",
 };
