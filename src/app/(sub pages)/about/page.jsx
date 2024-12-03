@@ -1,6 +1,6 @@
 import Image from "next/image";
 import bg from "../../../../public/background/about-background.png";
-import AboutDetails from "@/components/about/About";
+import AboutDetails from "@/components/about";
 import RenderModel from "@/components/RenderModel";
 // import dynamic from "next/dynamic";
 

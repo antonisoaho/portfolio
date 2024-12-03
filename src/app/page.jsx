@@ -1,6 +1,6 @@
 import Image from "next/image";
 import bg from "../../public/background/home-background.png";
-import Navigation from "@/components/navigation/Navigation";
+import Navigation from "@/components/navigation";
 import RenderModel from "@/components/RenderModel";
 
 export default function Home() {

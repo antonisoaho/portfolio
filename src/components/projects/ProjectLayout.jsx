@@ -14,7 +14,7 @@ const ProjectLayout = ({ name, description, date, demoLink }) => {
   return (
     <NavLink
       variants={item}
-      href={demoLink}
+      href="/"
       target={"_blank"}
       className=" text-sm md:text-base flex  items-center justify-between w-full relative rounded-lg overflow-hidden p-4 md:p-6 custom-bg"
     >

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import bg from "../../../../public/background/projects-background.png";
 import RenderModel from "@/components/RenderModel";
-import Projects from "@/components/projects/Projects";
+import Projects from "@/components/projects";
 // import dynamic from "next/dynamic";
 
 // const Model = dynamic(() => import(""), { srr: false});
