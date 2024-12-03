@@ -6,6 +6,7 @@ import { client } from "./client";
 
 export const { sanityFetch, SanityLive } = defineLive({
   client: client.withConfig({
+    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
     apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
     token: process.env.SANITY_SERVER_TOKEN,
   }),
