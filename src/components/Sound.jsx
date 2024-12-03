@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Volume2, VolumeX } from "lucide-react";
 import { createPortal } from "react-dom";
@@ -31,12 +31,17 @@ const Modal = ({ onClose, toggle }) => {
   );
 };
 
+const isOlderThanDays = (date, days) => {
+  const targetDate = new Date(date).getTime() + days * 24 * 60 * 60 * 1000;
+  return targetDate <= new Date().getTime();
+};
+
 const Sound = () => {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  const handleFirstUserInteraction = () => {
+  const handleFirstUserInteraction = useCallback(() => {
     const musicConsent = localStorage.getItem("musicConsent");
     if (musicConsent == "true" && !isPlaying) {
       audioRef.current.play();
@@ -46,37 +51,40 @@ const Sound = () => {
     ["click", "keydown", "touchStart"].forEach((event) =>
       document.removeEventListener(event, handleFirstUserInteraction)
     );
-  };
+  }, [isPlaying]);
 
   useEffect(() => {
     const consent = localStorage.getItem("musicConsent");
     const consentTime = localStorage.getItem("consentTime");
 
-    if (
-      consent &&
-      consentTime &&
-      new Date(consentTime).getTime() + 3 * 24 * 60 * 60 * 1000 > new Date()
-    ) {
-      setIsPlaying(consent == "true");
+    if (consent && consentTime) {
+      if (isOlderThanDays(consentTime, 3)) {
+        setShowModal(true);
+      } else {
+        setIsPlaying(consent == "true");
 
-      if (consent == "true") {
-        ["click", "keydown", "touchStart"].forEach((event) =>
-          document.addEventListener(event, handleFirstUserInteraction)
-        );
+        if (consent == "true") {
+          ["click", "keydown", "touchStart"].forEach((event) =>
+            document.addEventListener(event, handleFirstUserInteraction)
+          );
+        }
       }
+    } else {
+      setShowModal(true);
     }
-    setShowModal(true);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const toggleIsPlaying = () => {
     const newState = !isPlaying;
 
+    setShowModal(false);
     setIsPlaying(newState);
     newState ? audioRef.current.play() : audioRef.current.pause();
 
     localStorage.setItem("musicConsent", String(newState));
     localStorage.setItem("consentTime", new Date().toISOString());
-    setShowModal(false);
   };
 
   return (

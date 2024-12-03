@@ -1,12 +1,41 @@
-const { default: ProjectList } = require("@/components/projects/ProjectList");
-const { client } = require("@/sanity/lib/client");
+"use client";
+import ProjectLayout from "./ProjectLayout";
+import { motion } from "framer-motion";
 
-const Projects = async () => {
-  const projects = await client.fetch(
-    `*[_type == "project" && !(_id in path("drafts.**"))]`
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+      delayChildren: 1.5,
+    },
+  },
+};
+
+const ProjectList = ({ projects }) => {
+  return (
+    <motion.div
+      variants={container}
+      initial="hidden"
+      animate="show"
+      className="w-full max-w-auto  xl:max-w-4xl px-4 mx-auto lg:px-16 space-y-6 md:space-y-8 flex flex-col items-center"
+    >
+      {Array.isArray(projects) &&
+        projects.map((project) => {
+          return (
+            <ProjectLayout
+              key={project._id}
+              {...project}
+            />
+          );
+        })}
+    </motion.div>
   );
-  console.log("projects", projects);
+};
 
+const Projects = ({ projects }) => {
   return <ProjectList projects={projects} />;
 };
+
 export default Projects;

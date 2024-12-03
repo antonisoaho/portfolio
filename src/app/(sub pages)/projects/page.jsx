@@ -2,6 +2,7 @@ import Image from "next/image";
 import bg from "../../../../public/background/projects-background.png";
 import RenderModel from "@/components/RenderModel";
 import Projects from "@/components/projects";
+import { client } from "@/sanity/lib/client";
 // import dynamic from "next/dynamic";
 
 // const Model = dynamic(() => import(""), { srr: false});
@@ -10,7 +11,11 @@ export const metadata = {
   title: "Projects",
 };
 
-export default function Home() {
+export default async function Home() {
+  const projects = await client.fetch(
+    `*[_type == "project" && !(_id in path("drafts.**"))]`
+  );
+
   return (
     <>
       <Image
@@ -21,8 +26,7 @@ export default function Home() {
         sizes="100vw"
       />
 
-      {/* Render projectslist - make database integration */}
-      <Projects />
+      <Projects projects={projects} />
 
       <div className="flex items-center justify-center fixed  top-16  lg:top-20 -translate-x-1/2 lg:translate-x-0 -z-10 left-1/2 lg:-left-24 h-screen">
         <RenderModel>
