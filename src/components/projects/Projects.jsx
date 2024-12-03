@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import ProjectLayout from "./ProjectLayout";
 import { motion } from "framer-motion";
-import { sanityFetch } from "@/sanity/lib/live";
 
 const container = {
   hidden: { opacity: 0 },
@@ -35,28 +34,21 @@ const ProjectList = ({ projects }) => {
   );
 };
 
-const fetchProjects = async () => {
-  try {
-    const data = await sanityFetch(
-      `*[_type == "project" && !(_id in path("drafts.**"))]`
-    );
-    return data;
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
-};
-
 const Projects = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    const getProjects = async () => {
-      const data = await fetchProjects();
-      setProjects(data);
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch("/api/projects");
+        const data = await response.json();
+        console.log("data", data);
+        setProjects(data);
+      } catch (error) {
+        console.error("Failed to fetch projects", error);
+      }
     };
-
-    getProjects();
+    fetchProjects();
   }, []);
 
   return <ProjectList projects={projects} />;
