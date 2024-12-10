@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.2.0",
+    "@portabletext/react": "^3.2.0",
     "@react-three/drei": "^9.99.5",
     "@react-three/fiber": "^8.15.16",
     "@sanity/client": "^6.23.0",

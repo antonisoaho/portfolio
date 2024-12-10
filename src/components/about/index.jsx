@@ -3,6 +3,17 @@ import React from "react";
 import ItemLayout from "./ItemLayout";
 
 const AboutDetails = () => {
+  const currentYear = new Date().getFullYear();
+  const currentMonth = new Date().getMonth();
+  const birthYear = 1994;
+  const birthMonth = 1;
+
+  let age = currentYear - birthYear;
+
+  if (currentMonth < birthMonth) {
+    age -= 1;
+  }
+
   return (
     <section className="py-20 w-full">
       <div className="grid grid-cols-12 gap-4 xs:gap-6 md:gap-8 w-full">
@@ -12,16 +23,21 @@ const AboutDetails = () => {
           }
         >
           <h2 className="text-xl md:text-2xl text-left w-full capitalize">
-            Anton I
+            Who am I?
           </h2>
           <p className="font-light  text-xs sm:text-sm md:text-base   ">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            I have a passion for several things that bring me both joy and
+            balance in life. Spending time with my <b>family and friends</b> is
+            something I truly cherish, as it’s always rewarding to share laughs,
+            meaningful conversations, and unforgettable moments with the people
+            closest to me. <br />I love playing <b>floorball</b> because it’s
+            fast-paced and keeps me active while enjoying teamwork and strategy
+            on the field. Another passion of mine is <b>coding</b> — I enjoy the
+            challenge of problem-solving, creating something from nothing, and
+            constantly learning new skills in a field that’s always evolving.
+            Lastly, I find playing <b>computer games </b>
+            incredibly fun; it’s a great way to unwind, explore virtual worlds,
+            and sometimes even connect with others who share similar interests.
           </p>
         </ItemLayout>
 
@@ -29,7 +45,7 @@ const AboutDetails = () => {
           className={" col-span-full xs:col-span-6 lg:col-span-4 text-accent"}
         >
           <p className="font-semibold w-full text-left text-2xl sm:text-5xl">
-            More <sub className="font-semibold text-base">stats?</sub>
+            {age} <sub className="font-semibold text-base">years old</sub>
           </p>
         </ItemLayout>
 

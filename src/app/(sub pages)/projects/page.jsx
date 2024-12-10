@@ -11,11 +11,12 @@ export const metadata = {
   title: "Projects",
 };
 
-export default async function Home() {
+export default async function ProjectsPage() {
   const projects = await client.fetch(
-    `*[_type == "project" && !(_id in path("drafts.**"))]`
+    `*[_type == "project" && !(_id in path("drafts.**"))]{_id, name, description, date, slug}`
   );
 
+  console.log(projects);
   return (
     <>
       <Image

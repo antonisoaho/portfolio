@@ -53,6 +53,11 @@ export const projectType = defineType({
         },
       ],
     }),
+    defineField({
+      name: "href",
+      title: "Link",
+      type: "string",
+    }),
   ],
   preview: {
     select: {

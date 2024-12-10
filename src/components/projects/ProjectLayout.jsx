@@ -10,12 +10,12 @@ const item = {
 
 const NavLink = motion(Link);
 
-const ProjectLayout = ({ name, description, date, demoLink }) => {
+const ProjectLayout = ({ name, description, date, slug }) => {
   return (
     <NavLink
       variants={item}
-      href="/"
-      target={"_blank"}
+      href={`/projects/${slug.current}`}
+      target={"_self"}
       className=" text-sm md:text-base flex  items-center justify-between w-full relative rounded-lg overflow-hidden p-4 md:p-6 custom-bg"
     >
       <div className="flex items-center justify-center space-x-2">
