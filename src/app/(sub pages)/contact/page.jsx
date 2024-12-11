@@ -1,9 +1,15 @@
 import Image from "next/image";
-import bg from "../../../../public/background/contact-background.png";
+import bg from "../../../../public/background/contact-background.jpg";
 import Form from "@/components/contact/Form";
-// import dynamic from "next/dynamic";
+import RenderModel from "@/components/RenderModel";
+import dynamic from "next/dynamic";
 
-// const Model = dynamic(() => import(""), { srr: false});
+const GlobeHologram = dynamic(
+  () => import("@/components/models/GlobeHologram"),
+  {
+    ssr: false,
+  }
+);
 export const metadata = {
   title: "Contact",
 };
@@ -22,17 +28,24 @@ export default function Contact() {
       <article className="relative w-full flex flex-col items-center justify-center space-y-8">
         <div className="flex flex-col items-center justify-center space-y-6 w-3/4">
           <h1 className="text-accent font-semibold text-center text-4xl capitalize">
-            Summon the wizard
+            Get in Touch
           </h1>
           <p className="text-center font-light">
-            Looking for a developer who can turn ideas into functional and
-            beautiful websites?
+            Are you looking for a developer to bring your ideas to life?
             <br />
-            I’m just a message away. Let’s create something amazing together!
+            I&apos;m here to help you create beautiful and functional websites.
+            <br />
+            Feel free to reach out and let&apos;s make something great together!
           </p>
         </div>
         <Form />
       </article>
+
+      <div className="w-full sm:h-screen h-full lg:w-72 absolute top-28 lg:top-1/3 -translate-y-1/2 left-0 z-10">
+        <RenderModel>
+          <GlobeHologram />
+        </RenderModel>
+      </div>
     </>
   );
 }

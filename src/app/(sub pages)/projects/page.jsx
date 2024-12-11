@@ -1,5 +1,5 @@
 import Image from "next/image";
-import bg from "../../../../public/background/projects-background.png";
+import bg from "../../../../public/background/projects-background.jpg";
 import RenderModel from "@/components/RenderModel";
 import Projects from "@/components/projects";
 import { client } from "@/sanity/lib/client";

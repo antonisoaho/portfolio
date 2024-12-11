@@ -100,7 +100,7 @@ const Sound = () => {
         ref={audioRef}
       >
         <source
-          src={""}
+          src={"/audio/background-sound.mp3"}
           type="audio/mpeg"
         />
         your browser does not support the audio element.

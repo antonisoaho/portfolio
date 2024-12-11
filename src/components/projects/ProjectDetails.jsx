@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
@@ -13,8 +11,8 @@ const ProjectDetails = ({ project }) => {
 
   return (
     <div className="p-6 md:p-8 custom-bg rounded-xl shadow-lg max-w-7xl">
-      <div className="flex flex-col xl:flex-row xl:space-x-6">
-        <div className="w-full xl:w-1/3 mb-4 xl:mb-0">
+      <div className="flex flex-col">
+        <div className="w-full mb-4 xl:mb-0">
           <div>
             <h1 className="text-2xl md:text-4xl font-bold text-accent mb-4">
               {project.name}
@@ -36,20 +34,18 @@ const ProjectDetails = ({ project }) => {
             <PortableText value={project.bio} />
           </div>
         </div>
-        <div className="relative w-full xl:w-2/3 flex justify-center items-center">
-          {project.image_1 && (
-            <div className="relative w-full max-w-lg h-auto transform transition-all duration-300">
-              <Image
-                alt={project.name}
-                src={urlFor(project.image_1).url()}
-                layout="responsive"
-                width={1200}
-                height={800}
-                className="rounded-lg object-contain"
-              />
-            </div>
-          )}
-        </div>
+        {project.image_1 && (
+          <div className="relative h-auto flex items-center">
+            <Image
+              alt={project.name}
+              src={urlFor(project.image_1).url()}
+              layout="responsive"
+              width={1600}
+              height={960}
+              className="rounded-lg"
+            />
+          </div>
+        )}
       </div>
     </div>
   );

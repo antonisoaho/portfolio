@@ -1,17 +1,19 @@
 import Image from "next/image";
-import bg from "../../../../public/background/about-background.png";
+import bg from "../../../../public/background/about-background.jpg";
 import AboutDetails from "@/components/about";
 import RenderModel from "@/components/RenderModel";
-// import dynamic from "next/dynamic";
+import dynamic from "next/dynamic";
 
-// const Model = dynamic(() => import(""), { srr: false});
+const Model = dynamic(() => import("@/components/models/InhabitedPlanet"), {
+  srr: false,
+});
 export const metadata = {
   title: "About",
 };
 
 export default function Home() {
   return (
-    <div className="max-w-7xl">
+    <div className="w-full xl:max-w-7xl">
       <Image
         src={bg}
         priority
@@ -21,16 +23,19 @@ export default function Home() {
       />
 
       <div className="w-full h-3/5 xs:h-3/4 sm:h-screen absolute top-1/2 -translate-y-1/2 left-0">
-        <RenderModel>{/* <Model /> */}</RenderModel>
+        <RenderModel>
+          <Model />
+        </RenderModel>
       </div>
 
       <div className="relative w-full h-screen flex flex-col items-center justify-center">
-        <div className="absolute flex flex-col items-center text-center top-1/2 sm:top-[60%] left-1/2 -translate-y-1/2 -translate-x-1/2">
+        <div className="absolute flex flex-col items-center text-center top-1/2 sm:top-[60%] lg:left-1/2 lg:-translate-y-1/2 lg:-translate-x-1/2">
           <h1 className="font-bold text-5xl xs:text-6xl sm:text-7xl lg:text-8xl  text-accent">
             Anton Isoaho
           </h1>
-          <p className="font-light text-foreground text-lg">
-            Meet the wizard behind this portfolio
+          <p className="font-light text-foreground text-lg w-full">
+            Welcome to my portfolio. I&apos;m a passionate developer dedicated
+            to turning ideas into reality.
           </p>
         </div>
       </div>

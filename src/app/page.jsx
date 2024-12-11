@@ -1,7 +1,11 @@
 import Image from "next/image";
-import bg from "../../public/background/home-background.png";
+import bg from "../../public/background/home-background.jpg";
 import Navigation from "@/components/navigation";
 import RenderModel from "@/components/RenderModel";
+import dynamic from "next/dynamic";
+const StyledPlanet = dynamic(() => import("@/components/models/StyledPlanet"), {
+  ssr: false,
+});
 
 export default function Home() {
   return (
@@ -18,7 +22,7 @@ export default function Home() {
       <div className="w-full h-screen">
         <Navigation />
         <RenderModel>
-          <></>
+          <StyledPlanet />
         </RenderModel>
       </div>
     </main>
