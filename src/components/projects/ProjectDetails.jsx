@@ -2,7 +2,7 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
-import SquareArrowOutUpRight from "lucide-react";
+import { SquareArrowOutUpRight } from "lucide-react";
 
 const ProjectDetails = ({ project }) => {
   if (!project) {
