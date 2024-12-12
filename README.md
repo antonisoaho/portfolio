@@ -1,8 +1,22 @@
-## Översikt
+## Info
 
 Denna app är en portföljwebbplats byggd med Next.js ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white), Three.js ![Three.js](https://img.shields.io/badge/Three.js-000000?style=flat&logo=three.js&logoColor=white) och Sanity.io ![Sanity](https://img.shields.io/badge/Sanity-000000?style=flat&logo=sanity&logoColor=white). Den innehåller flera sidor och komponenter för att visa information om projekt, kontaktinformation och mer.
 
-### Sidor
+### Preview
+
+[Live Demo](https://nextjs-portfolio-ecru-two.vercel.app/)
+
+![Home Page](/public/preview/home-page.png)
+![About Page](/public/preview/about-page.png)
+![Contact Page](/public/preview/contact-page.png)
+![Projects Page](/public/preview/projects-page.png)
+
+<details>
+<summary>
+
+### Översikt
+
+</summary>
 
 #### `src/app/page.jsx`
 
@@ -85,3 +99,4 @@ Denna app är en portföljwebbplats byggd med Next.js ![Next.js](https://img.shi
 - **Beskrivning**: Struktur för Sanity Studio.
 - **Innehåll**:
   - Definierar hur dokumenttyper ska visas i Sanity Studio.
+  </details>
