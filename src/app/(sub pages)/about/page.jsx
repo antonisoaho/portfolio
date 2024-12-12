@@ -8,7 +8,28 @@ const Model = dynamic(() => import("@/components/models/InhabitedPlanet"), {
   srr: false,
 });
 export const metadata = {
-  title: "About",
+  title: {
+    template: "Anton Isoaho | About",
+    default: "Anton Isoaho | About",
+  },
+  description: "My first portfolio",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "About | Anton Isoaho",
+    description: "Learn more about Anton Isoaho",
+    type: "website",
+    url: "https://nextjs-portfolio-ecru-two.vercel.app/about",
+    image: "/background/about-background.jpg",
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@handle",
+    title: "About | Anton Isoaho",
+    description: "Learn more about Anton Isoaho",
+    image: "/background/about-background.jpg",
+  },
 };
 
 export default function Home() {

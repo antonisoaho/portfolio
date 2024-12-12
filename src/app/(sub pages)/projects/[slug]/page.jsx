@@ -3,6 +3,31 @@ import { client } from "@/sanity/lib/client";
 import Image from "next/image";
 import bg from "../../../../../public/background/projects-background.jpg";
 
+export const metadata = {
+  title: {
+    template: "Anton Isoaho",
+    default: "Anton Isoaho | Project",
+  },
+  description: "My first portfolio",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "Anton Isoaho | Next.js Portfolio",
+    description: "My first portfolio",
+    type: "website",
+    url: "https://nextjs-portfolio-ecru-two.vercel.app/",
+    image: "/background/projects-background.jpg",
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@handle",
+    title: "Anton Isoaho | Next.js Portfolio",
+    description: "My first portfolio",
+    image: "/background/projects-background.jpg",
+  },
+};
+
 export const dynamic = "force-dynamic";
 
 const ProjectPage = async ({ params }) => {

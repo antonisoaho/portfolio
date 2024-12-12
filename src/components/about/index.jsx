@@ -14,11 +14,6 @@ const AboutDetails = () => {
     age -= 1;
   }
 
-  console.log(
-    "`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}/api/pin/?username=antonisoaho&repo=Nextjs-contentlayer-blog&theme=transparent&hide_border=true&title_color=FEFE5B&text_color=FFFFFF&icon_color=FEFE5B&text_bold=false&description_lines_count=2`",
-    `${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}/api/pin/?username=antonisoaho&repo=Nextjs-contentlayer-blog&theme=transparent&hide_border=true&title_color=FEFE5B&text_color=FFFFFF&icon_color=FEFE5B&text_bold=false&description_lines_count=2`
-  );
-
   return (
     <section className="py-20 w-full">
       <div className="grid grid-cols-12 gap-4 xs:gap-6 md:gap-8 w-full">

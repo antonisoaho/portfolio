@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Översikt
 
-## Getting Started
+Denna app är en portföljwebbplats byggd med Next.js ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white), Three.js ![Three.js](https://img.shields.io/badge/Three.js-000000?style=flat&logo=three.js&logoColor=white) och Sanity.io ![Sanity](https://img.shields.io/badge/Sanity-000000?style=flat&logo=sanity&logoColor=white). Den innehåller flera sidor och komponenter för att visa information om projekt, kontaktinformation och mer.
 
-First, run the development server:
+### Sidor
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+#### `src/app/page.jsx`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Beskrivning**: Startsidan.
+- **Innehåll**:
+  - Innehåller navigationskomponenten (`Navigation`).
+  - Innehåller en 3D-modellvisare (`RenderModel`).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+#### `src/app/(sub pages)/about/page.jsx`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Beskrivning**: Om mig-sidan.
+- **Innehåll**:
+  - Innehåller information om mig som utvecklare och vem jag är (`AboutDetails`).
+  - Innehåller en 3D-modellvisare (`RenderModel`).
 
-## Learn More
+#### `src/app/(sub pages)/contact/page.jsx`
 
-To learn more about Next.js, take a look at the following resources:
+- **Beskrivning**: Kontakt-sidan.
+- **Innehåll**:
+  - Innehåller en rubrik och beskrivning.
+  - Innehåller ett kontaktformulär (`Form`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### `src/app/(sub pages)/projects/page.jsx`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Beskrivning**: Projekt-sidan.
+- **Innehåll**:
+  - Innehåller en lista över projekt (`Projects`).
+  - Innehåller en 3D-modellvisare (`RenderModel`).
 
-## Deploy on Vercel
+#### `src/app/(sub pages)/projects/[slug]/page.jsx`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Beskrivning**: Projektdetaljsidan.
+- **Innehåll**:
+  - Visar detaljer om ett specifikt projekt (`ProjectDetails`).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Komponenter
+
+#### `src/components/navigation/index.jsx`
+
+- **Beskrivning**: Navigationskomponenten.
+- **Innehåll**:
+  - Använder `NavButton` för att skapa navigationsknappar.
+  - Dynamiskt layout beroende på skärmstorlek.
+
+#### `src/components/projects/index.jsx`
+
+- **Beskrivning**: Projektkomponenten.
+- **Innehåll**:
+  - Visar en lista över projekt (`ProjectList`).
+
+#### `src/components/about/index.jsx`
+
+- **Beskrivning**: Om mig-komponenten.
+- **Innehåll**:
+  - Visar olika sektioner med information och statistik.
+
+#### `src/components/contact/Form.jsx`
+
+- **Beskrivning**: Kontaktformulärkomponenten.
+- **Innehåll**:
+  - Hanterar formulärinmatning och skickar e-post via EmailJS.
+
+### Sanity
+
+#### `sanity.config.js`
+
+- **Beskrivning**: Konfigurationsfil för Sanity Studio.
+- **Innehåll**:
+  - Definierar projekt-ID och dataset.
+  - Inkluderar plugins som `visionTool` och `structureTool`.
+
+#### `src/sanity/schemaTypes/index.js`
+
+- **Beskrivning**: Schema för Sanity.
+- **Innehåll**:
+  - Definierar dokumenttyper som "category" och "project".
+
+#### `src/sanity/structure.js`
+
+- **Beskrivning**: Struktur för Sanity Studio.
+- **Innehåll**:
+  - Definierar hur dokumenttyper ska visas i Sanity Studio.
