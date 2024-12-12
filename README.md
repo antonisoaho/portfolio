@@ -7,7 +7,7 @@ Denna app är en portföljwebbplats byggd med Next.js ![Next.js](https://img.shi
 <details>
 <summary>
 
-### Preview
+### Bilder
 
 </summary>
 
