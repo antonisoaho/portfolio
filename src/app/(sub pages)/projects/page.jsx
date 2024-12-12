@@ -12,7 +12,28 @@ const GlobeHologram = dynamic(
 );
 
 export const metadata = {
-  title: "Projects",
+  title: {
+    template: "Anton Isoaho | Projects",
+    default: "Anton Isoaho | Projects",
+  },
+  description: "My first portfolio",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "Projects | Anton Isoaho",
+    description: "Explore the projects by Anton Isoaho",
+    type: "website",
+    url: "https://nextjs-portfolio-ecru-two.vercel.app/projects",
+    image: "/background/projects-background.jpg",
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@handle",
+    title: "Projects | Anton Isoaho",
+    description: "Explore the projects by Anton Isoaho",
+    image: "/background/projects-background.jpg",
+  },
 };
 
 export default async function ProjectsPage() {
@@ -20,7 +41,6 @@ export default async function ProjectsPage() {
     `*[_type == "project" && !(_id in path("drafts.**"))]{_id, name, description, date, slug}`
   );
 
-  console.log(projects);
   return (
     <>
       <Image
@@ -30,14 +50,13 @@ export default async function ProjectsPage() {
         priority
         sizes="100vw"
       />
-
-      <Projects projects={projects} />
-
-      <div className="w-full sm:h-screen h-full lg:w-72 absolute top-28 lg:top-1/3 -translate-y-1/2 left-0 z-10">
+      <div className="w-full sm:h-screen h-full lg:w-72 absolute top-28 lg:top-1/3 -translate-y-1/2 left-0 -z-40">
         <RenderModel>
           <GlobeHologram />
         </RenderModel>
       </div>
+
+      <Projects projects={projects} />
     </>
   );
 }

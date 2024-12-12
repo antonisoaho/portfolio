@@ -11,7 +11,28 @@ const GlobeHologram = dynamic(
   }
 );
 export const metadata = {
-  title: "Contact",
+  title: {
+    template: "Anton Isoaho",
+    default: "Anton Isoaho | Contact",
+  },
+  description: "My first portfolio",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "Contact | Anton Isoaho",
+    description: "Get in touch with Anton Isoaho",
+    type: "website",
+    url: "https://nextjs-portfolio-ecru-two.vercel.app/contact",
+    image: "/background/contact-background.jpg",
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@handle",
+    title: "Contact | Anton Isoaho",
+    description: "Get in touch with Anton Isoaho",
+    image: "/background/contact-background.jpg",
+  },
 };
 
 export default function Contact() {
