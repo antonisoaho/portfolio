@@ -2,14 +2,21 @@
 
 Denna app är en portföljwebbplats byggd med Next.js ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white), Three.js ![Three.js](https://img.shields.io/badge/Three.js-000000?style=flat&logo=three.js&logoColor=white) och Sanity.io ![Sanity](https://img.shields.io/badge/Sanity-000000?style=flat&logo=sanity&logoColor=white). Den innehåller flera sidor och komponenter för att visa information om projekt, kontaktinformation och mer.
 
+[Live Demo](https://nextjs-portfolio-ecru-two.vercel.app/)
+
+<details>
+<summary>
+
 ### Preview
 
-[Live Demo](https://nextjs-portfolio-ecru-two.vercel.app/)
+</summary>
 
 ![Home Page](/public/preview/home-page.png)
 ![About Page](/public/preview/about-page.png)
 ![Contact Page](/public/preview/contact-page.png)
 ![Projects Page](/public/preview/projects-page.png)
+
+</details>
 
 <details>
 <summary>
