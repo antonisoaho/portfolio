@@ -1,8 +1,6 @@
-## Documentation
+## Översikt
 
-### Översikt
-
-Denna app är en portföljwebbplats byggd med Next.js och Sanity.io. Den innehåller flera sidor och komponenter för att visa information om projekt, kontaktinformation och mer.
+Denna app är en portföljwebbplats byggd med Next.js ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white), Three.js ![Three.js](https://img.shields.io/badge/Three.js-000000?style=flat&logo=three.js&logoColor=white) och Sanity.io ![Sanity](https://img.shields.io/badge/Sanity-000000?style=flat&logo=sanity&logoColor=white). Den innehåller flera sidor och komponenter för att visa information om projekt, kontaktinformation och mer.
 
 ### Sidor
 
@@ -17,7 +15,7 @@ Denna app är en portföljwebbplats byggd med Next.js och Sanity.io. Den innehå
 
 - **Beskrivning**: Om mig-sidan.
 - **Innehåll**:
-  - Innehåller information om utvecklaren (`AboutDetails`).
+  - Innehåller information om mig som utvecklare och vem jag är (`AboutDetails`).
   - Innehåller en 3D-modellvisare (`RenderModel`).
 
 #### `src/app/(sub pages)/contact/page.jsx`
@@ -59,7 +57,7 @@ Denna app är en portföljwebbplats byggd med Next.js och Sanity.io. Den innehå
 
 - **Beskrivning**: Om mig-komponenten.
 - **Innehåll**:
-  - Visar olika sektioner med information om erfarenhet och statistik.
+  - Visar olika sektioner med information och statistik.
 
 #### `src/components/contact/Form.jsx`
 
