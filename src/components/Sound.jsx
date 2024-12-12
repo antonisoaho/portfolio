@@ -87,11 +87,20 @@ const Sound = () => {
     localStorage.setItem("consentTime", new Date().toISOString());
   };
 
+  const onClose = () => {
+    const newState = false;
+
+    setShowModal(false);
+    audioRef.current.pause();
+    localStorage.setItem("musicConsent", String(newState));
+    localStorage.setItem("consentTime", new Date().toISOString());
+  };
+
   return (
     <div className="fixed top-4 right-2.5 xs:right-4 z-50 group">
       {showModal && (
         <Modal
-          onClose={() => setShowModal(false)}
+          onClose={onClose}
           toggle={toggleIsPlaying}
         />
       )}
