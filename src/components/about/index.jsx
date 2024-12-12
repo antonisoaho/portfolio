@@ -69,7 +69,7 @@ const AboutDetails = () => {
         >
           <img
             className="w-full h-auto"
-            src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}/top-langs?username=antonisoaho&&role=OWNER,COLLABORATOR,ORGANIZATION_MEMBER&theme=transparent&hide_border=true&title_color=FEFE5B&icon_color=FEFE5B&text_bold=false`}
+            src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}/top-langs?username=antonisoaho&&role=OWNER,COLLABORATOR,ORGANIZATION_MEMBER&theme=transparent&hide_border=true&title_color=FEBE5B&icon_color=FEBE5B&text_bold=false`}
             alt="Used languages"
             loading="lazy"
           />
@@ -78,7 +78,7 @@ const AboutDetails = () => {
         <ItemLayout className={"col-span-full md:col-span-8 !p-0"}>
           <img
             className="w-full h-auto"
-            src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}?username=antonisoaho&&role=OWNER,COLLABORATOR,ORGANIZATION_MEMBER&theme=transparent&hide_border=true&title_color=FEFE5B&text_color=FFFFFF&icon_color=FEFE5B&text_bold=false`}
+            src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}?username=antonisoaho&&role=OWNER,COLLABORATOR,ORGANIZATION_MEMBER&theme=transparent&hide_border=true&title_color=FEBE5B&text_color=FFFFFF&icon_color=FEBE5B&text_bold=false`}
             alt="Anton Isoaho"
             loading="lazy"
           />
@@ -98,7 +98,7 @@ const AboutDetails = () => {
         <ItemLayout className={"col-span-full md:col-span-6 !p-0"}>
           <img
             className="w-full h-auto"
-            src={`${process.env.NEXT_PUBLIC_GITHUB_STREAK_STATS_URL}?user=antonisoaho&theme=dark&background=EB545400&currStreakLabel=FEFE5B&ring=FEFE5B`}
+            src={`${process.env.NEXT_PUBLIC_GITHUB_STREAK_STATS_URL}?user=antonisoaho&theme=dark&background=EB545400&currStreakLabel=FEBE5B&ring=FEBE5B`}
             alt="Anton Isoaho"
             loading="lazy"
           />

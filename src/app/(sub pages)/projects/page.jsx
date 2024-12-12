@@ -3,9 +3,13 @@ import bg from "../../../../public/background/projects-background.jpg";
 import RenderModel from "@/components/RenderModel";
 import Projects from "@/components/projects";
 import { client } from "@/sanity/lib/client";
-// import dynamic from "next/dynamic";
-
-// const Model = dynamic(() => import(""), { srr: false});
+import dynamic from "next/dynamic";
+const GlobeHologram = dynamic(
+  () => import("@/components/models/GlobeHologram"),
+  {
+    ssr: false,
+  }
+);
 
 export const metadata = {
   title: "Projects",
@@ -29,9 +33,9 @@ export default async function ProjectsPage() {
 
       <Projects projects={projects} />
 
-      <div className="flex items-center justify-center fixed  top-16  lg:top-20 -translate-x-1/2 lg:translate-x-0 -z-10 left-1/2 lg:-left-24 h-screen">
+      <div className="w-full sm:h-screen h-full lg:w-72 absolute top-28 lg:top-1/3 -translate-y-1/2 left-0 z-10">
         <RenderModel>
-          {/* Here I will generate 3d-models  */} <></>
+          <GlobeHologram />
         </RenderModel>
       </div>
     </>
