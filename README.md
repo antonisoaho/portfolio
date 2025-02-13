@@ -1,109 +1,116 @@
-## Info
+# Portfolio Website
 
-Denna app är en portföljwebbplats byggd med Next.js ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white), Three.js ![Three.js](https://img.shields.io/badge/Three.js-000000?style=flat&logo=three.js&logoColor=white) och Sanity.io ![Sanity](https://img.shields.io/badge/Sanity-000000?style=flat&logo=sanity&logoColor=white). Den innehåller flera sidor och komponenter för att visa information om projekt, kontaktinformation och mer.
+This app is a portfolio website built with Next.js ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white), Three.js ![Three.js](https://img.shields.io/badge/Three.js-000000?style=flat&logo=three.js&logoColor=white), and Sanity.io ![Sanity](https://img.shields.io/badge/Sanity-000000?style=flat&logo=sanity&logoColor=white). It includes multiple pages and components to display information about projects, contact details, and more.
 
-<a href="https://www.isoaho.se/" target="_blank">Live Demo</a>
+[Live Demo](https://www.isoaho.se/)
+
+## Images
 
 <details>
-<summary>
+<summary>Click to expand</summary>
 
-### Bilder
-
-</summary>
-
-![Home Page](/public/preview/home-page.png)
-![About Page](/public/preview/about-page.png)
-![Contact Page](/public/preview/contact-page.png)
+![Home Page](/public/preview/home-page.png)  
+![About Page](/public/preview/about-page.png)  
+![Contact Page](/public/preview/contact-page.png)  
 ![Projects Page](/public/preview/projects-page.png)
 
 </details>
 
+## Overview
+
 <details>
-<summary>
+<summary>Click to expand</summary>
 
-### Översikt
+### `src/app/page.jsx`
 
-</summary>
+- **Description**: The home page.  
+- **Content**:  
+  - Includes the navigation component (`Navigation`).  
+  - Includes a 3D model viewer (`RenderModel`).  
 
-#### `src/app/page.jsx`
+### `src/app/(sub pages)/about/page.jsx`
 
-- **Beskrivning**: Startsidan.
-- **Innehåll**:
-  - Innehåller navigationskomponenten (`Navigation`).
-  - Innehåller en 3D-modellvisare (`RenderModel`).
+- **Description**: The About Me page.  
+- **Content**:  
+  - Includes information about me as a developer and who I am (`AboutDetails`).  
+  - Includes a 3D model viewer (`RenderModel`).  
 
-#### `src/app/(sub pages)/about/page.jsx`
+### `src/app/(sub pages)/contact/page.jsx`
 
-- **Beskrivning**: Om mig-sidan.
-- **Innehåll**:
-  - Innehåller information om mig som utvecklare och vem jag är (`AboutDetails`).
-  - Innehåller en 3D-modellvisare (`RenderModel`).
+- **Description**: The Contact page.  
+- **Content**:  
+  - Includes a header and description.  
+  - Includes a contact form (`Form`).  
 
-#### `src/app/(sub pages)/contact/page.jsx`
+### `src/app/(sub pages)/projects/page.jsx`
 
-- **Beskrivning**: Kontakt-sidan.
-- **Innehåll**:
-  - Innehåller en rubrik och beskrivning.
-  - Innehåller ett kontaktformulär (`Form`).
+- **Description**: The Projects page.  
+- **Content**:  
+  - Displays a list of projects (`Projects`).  
+  - Includes a 3D model viewer (`RenderModel`).  
 
-#### `src/app/(sub pages)/projects/page.jsx`
+### `src/app/(sub pages)/projects/[slug]/page.jsx`
 
-- **Beskrivning**: Projekt-sidan.
-- **Innehåll**:
-  - Innehåller en lista över projekt (`Projects`).
-  - Innehåller en 3D-modellvisare (`RenderModel`).
+- **Description**: The Project Details page.  
+- **Content**:  
+  - Displays details of a specific project (`ProjectDetails`).  
 
-#### `src/app/(sub pages)/projects/[slug]/page.jsx`
+</details>
 
-- **Beskrivning**: Projektdetaljsidan.
-- **Innehåll**:
-  - Visar detaljer om ett specifikt projekt (`ProjectDetails`).
+## Components
 
-### Komponenter
+<details>
+<summary>Click to expand</summary>
 
-#### `src/components/navigation/index.jsx`
+### `src/components/navigation/index.jsx`
 
-- **Beskrivning**: Navigationskomponenten.
-- **Innehåll**:
-  - Använder `NavButton` för att skapa navigationsknappar.
-  - Dynamiskt layout beroende på skärmstorlek.
+- **Description**: The navigation component.  
+- **Content**:  
+  - Uses `NavButton` to create navigation buttons.  
+  - Adapts layout dynamically based on screen size.  
 
-#### `src/components/projects/index.jsx`
+### `src/components/projects/index.jsx`
 
-- **Beskrivning**: Projektkomponenten.
-- **Innehåll**:
-  - Visar en lista över projekt (`ProjectList`).
+- **Description**: The projects component.  
+- **Content**:  
+  - Displays a list of projects (`ProjectList`).  
 
-#### `src/components/about/index.jsx`
+### `src/components/about/index.jsx`
 
-- **Beskrivning**: Om mig-komponenten.
-- **Innehåll**:
-  - Visar olika sektioner med information och statistik.
+- **Description**: The About Me component.  
+- **Content**:  
+  - Displays various sections with information and statistics.  
 
-#### `src/components/contact/Form.jsx`
+### `src/components/contact/Form.jsx`
 
-- **Beskrivning**: Kontaktformulärkomponenten.
-- **Innehåll**:
-  - Hanterar formulärinmatning och skickar e-post via EmailJS.
+- **Description**: The contact form component.  
+- **Content**:  
+  - Handles form input and sends emails via EmailJS.  
 
-### Sanity
+</details>
 
-#### `sanity.config.js`
+## Sanity
 
-- **Beskrivning**: Konfigurationsfil för Sanity Studio.
-- **Innehåll**:
-  - Definierar projekt-ID och dataset.
-  - Inkluderar plugins som `visionTool` och `structureTool`.
+<details>
+<summary>Click to expand</summary>
 
-#### `src/sanity/schemaTypes/index.js`
+### `sanity.config.js`
 
-- **Beskrivning**: Schema för Sanity.
-- **Innehåll**:
-  - Definierar dokumenttyper som "category" och "project".
+- **Description**: Configuration file for Sanity Studio.  
+- **Content**:  
+  - Defines project ID and dataset.  
+  - Includes plugins like `visionTool` and `structureTool`.  
 
-#### `src/sanity/structure.js`
+### `src/sanity/schemaTypes/index.js`
 
-- **Beskrivning**: Struktur för Sanity Studio.
-- **Innehåll**:
-  - Definierar hur dokumenttyper ska visas i Sanity Studio.
-  </details>
+- **Description**: Schema for Sanity.  
+- **Content**:  
+  - Defines document types such as "category" and "project".  
+
+### `src/sanity/structure.js`
+
+- **Description**: Structure for Sanity Studio.  
+- **Content**:  
+  - Defines how document types should be displayed in Sanity Studio.  
+
+</details>
