@@ -5,7 +5,7 @@ export const BtnList = [
   { label: "Contact", link: "/contact", icon: "contact", newTab: false },
   {
     label: "Github",
-    link: "https://www.github.com/antonisoaho",
+    link: "https://github.com/antonisoaho/portfolio",
     icon: "github",
     newTab: true,
   },
@@ -14,21 +14,5 @@ export const BtnList = [
     link: "https://www.linkedin.com/in/anton-isoaho-2b66a086/",
     icon: "linkedin",
     newTab: true,
-  },
-  // {
-  //   label: "Resume",
-  //   link: "/resume.pdf",
-  //   icon: "resume",
-  //   newTab: true,
-  // },
-];
-
-export const projectsData = [
-  {
-    id: 1,
-    name: "GoLife",
-    description: "Find out your financial status",
-    date: "2024-08-15",
-    demoLink: "",
   },
 ];

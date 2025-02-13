@@ -23,13 +23,6 @@ export const metadata = {
     url: "https://nextjs-portfolio-ecru-two.vercel.app/projects",
     image: "/path/to/your/image.jpg",
   },
-  twitter: {
-    card: "summary_large_image",
-    creator: "@handle",
-    title: "Projects | Anton Isoaho",
-    description: "Explore the projects by Anton Isoaho",
-    image: "/path/to/your/image.jpg",
-  },
 };
 
 export default function Home() {
