@@ -43,6 +43,8 @@ export default function Contact() {
         alt="Next.js Portfolio website's contact page background image"
         priority
         sizes="100vw"
+        loading="eager"
+        placeholder="blur"
         className="-z-50 fixed top-0 left-0 w-full h-full object-cover object-center opacity-50"
       />
 

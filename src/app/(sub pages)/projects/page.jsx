@@ -49,6 +49,8 @@ export default async function ProjectsPage() {
         className="-z-50 fixed top-0 left-0 w-full h-full object-cover object-center opacity-50"
         priority
         sizes="100vw"
+        loading="eager"
+        placeholder="blur"
       />
       <div className="w-full sm:h-screen h-full lg:w-72 absolute top-28 lg:top-1/3 -translate-y-1/2 left-0 -z-40">
         <RenderModel>

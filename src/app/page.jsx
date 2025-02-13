@@ -38,6 +38,8 @@ export default function Home() {
       <Image
         priority
         sizes="100vw"
+        loading="eager"
+        placeholder="blur"
         src={bg}
         alt="background-image"
         fill
