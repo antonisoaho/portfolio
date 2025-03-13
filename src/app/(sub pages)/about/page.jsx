@@ -20,7 +20,7 @@ export const metadata = {
     title: "About | Anton Isoaho",
     description: "Learn more about Anton Isoaho",
     type: "website",
-    url: "https://nextjs-portfolio-ecru-two.vercel.app/about",
+    url: "https://www.isoaho.se/about",
     image: "/background/about-background.jpg",
   },
   twitter: {

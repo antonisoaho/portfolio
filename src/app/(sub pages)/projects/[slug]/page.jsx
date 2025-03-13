@@ -16,14 +16,7 @@ export const metadata = {
     title: "Anton Isoaho | Next.js Portfolio",
     description: "My first portfolio",
     type: "website",
-    url: "https://nextjs-portfolio-ecru-two.vercel.app/",
-    image: "/background/projects-background.jpg",
-  },
-  twitter: {
-    card: "summary_large_image",
-    creator: "@handle",
-    title: "Anton Isoaho | Next.js Portfolio",
-    description: "My first portfolio",
+    url: "https://www.isoaho.se/",
     image: "/background/projects-background.jpg",
   },
 };

@@ -24,14 +24,7 @@ export const metadata = {
     title: "Projects | Anton Isoaho",
     description: "Explore the projects by Anton Isoaho",
     type: "website",
-    url: "https://nextjs-portfolio-ecru-two.vercel.app/projects",
-    image: "/background/projects-background.jpg",
-  },
-  twitter: {
-    card: "summary_large_image",
-    creator: "@handle",
-    title: "Projects | Anton Isoaho",
-    description: "Explore the projects by Anton Isoaho",
+    url: "https://www.isoaho.se/projects",
     image: "/background/projects-background.jpg",
   },
 };

@@ -23,14 +23,7 @@ export const metadata = {
     title: "Contact | Anton Isoaho",
     description: "Get in touch with Anton Isoaho",
     type: "website",
-    url: "https://nextjs-portfolio-ecru-two.vercel.app/contact",
-    image: "/background/contact-background.jpg",
-  },
-  twitter: {
-    card: "summary_large_image",
-    creator: "@handle",
-    title: "Contact | Anton Isoaho",
-    description: "Get in touch with Anton Isoaho",
+    url: "https://www.isoaho.se/contact",
     image: "/background/contact-background.jpg",
   },
 };
