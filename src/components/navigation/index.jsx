@@ -2,7 +2,7 @@
 import NavButton from "@/components/navigation/NavButton";
 import { BtnList } from "@/app/data";
 import React from "react";
-import useScreenSize from "@/components/hooks/useScreenSize";
+import useScreenSize from "@/hooks/useScreenSize";
 import ResponsiveComponent from "@/components/ResponsiveComponent";
 import { motion } from "framer-motion";
 
@@ -39,8 +39,8 @@ const Navigation = () => {
                 const radius = isLarge
                   ? "calc(20vw - 1rem)"
                   : isMedium
-                  ? "calc(30vw - 1rem)"
-                  : "calc(40vw - 1rem)";
+                    ? "calc(30vw - 1rem)"
+                    : "calc(40vw - 1rem)";
 
                 const x = `calc(${radius}*${Math.cos(angleRad)})`;
                 const y = `calc(${radius}*${Math.sin(angleRad)})`;
@@ -68,8 +68,8 @@ const Navigation = () => {
                   const radius = isLarge
                     ? "calc(20vw - 1rem)"
                     : isMedium
-                    ? "calc(30vw - 1rem)"
-                    : "calc(40vw - 1rem)";
+                      ? "calc(30vw - 1rem)"
+                      : "calc(40vw - 1rem)";
 
                   const x = `calc(${radius}*${Math.cos(angleRad)})`;
                   const y = `calc(${radius}*${Math.sin(angleRad)})`;

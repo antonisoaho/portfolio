@@ -1,6 +1,6 @@
 "use client";
 
-import useScreenSize from "@/components/hooks/useScreenSize";
+import useScreenSize from "@/hooks/useScreenSize";
 import React from "react";
 
 const ResponsiveComponent = ({ children }) => {
