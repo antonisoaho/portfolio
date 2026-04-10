@@ -5,7 +5,6 @@ import {
   Home,
   Linkedin,
   NotebookText,
-  Palette,
   Phone,
   User,
 } from "lucide-react";
@@ -25,13 +24,6 @@ const getIcon = (icon) => {
     case "about":
       return (
         <User
-          className="w-full h-auto"
-          strokeWidth={1.5}
-        />
-      );
-    case "projects":
-      return (
-        <Palette
           className="w-full h-auto"
           strokeWidth={1.5}
         />

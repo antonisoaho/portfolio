@@ -1,11 +1,13 @@
 import Image from "next/image";
 import bg from "../../../../public/background/about-background.jpg";
 import AboutDetails from "@/components/about";
-import RenderModel from "@/components/RenderModel";
 import dynamic from "next/dynamic";
 
+const RenderModel = dynamic(() => import("@/components/RenderModel"), {
+  ssr: false,
+});
 const Model = dynamic(() => import("@/components/models/InhabitedPlanet"), {
-  srr: false,
+  ssr: false,
 });
 export const metadata = {
   title: {
@@ -39,7 +41,6 @@ export default function Home() {
         src={bg}
         priority
         sizes="100vw"
-        loading="eager"
         placeholder="blur"
         alt="Next.js Portfolio website's about page background image"
         className="-z-50 fixed top-0 left-0 w-full h-full object-cover object-center opacity-50"
@@ -52,11 +53,11 @@ export default function Home() {
       </div>
 
       <div className="relative w-full h-screen flex flex-col items-center justify-center">
-        <div className="absolute flex flex-col items-center text-center top-1/2 sm:top-[60%] lg:left-1/2 lg:-translate-y-1/2 lg:-translate-x-1/2">
-          <h1 className="font-bold text-5xl xs:text-6xl sm:text-7xl lg:text-8xl  text-accent">
+        <div className="absolute flex flex-col items-center text-center top-1/2 sm:top-[60%] lg:left-1/2 lg:-translate-y-1/2 lg:-translate-x-1/2 max-w-2xl mx-auto px-6 gap-5">
+          <h1 className="font-bold text-5xl xs:text-6xl sm:text-7xl lg:text-8xl text-accent">
             Anton Isoaho
           </h1>
-          <p className="font-light text-foreground text-lg w-full">
+          <p className="font-light text-foreground text-lg sm:text-xl w-full leading-relaxed tracking-wide">
             Welcome to my portfolio. I&apos;m a passionate developer dedicated
             to turning ideas into reality.
           </p>

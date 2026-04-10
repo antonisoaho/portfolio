@@ -12,12 +12,12 @@ const GlobeHologram = React.memo(function GlobeHologram(props) {
   );
   const { actions } = useAnimations(animations, group);
 
-  useFrame(() => {
+  useFrame((_, delta) => {
     if (planetRef.current) {
-      planetRef.current.rotation.y += 0.002;
+      planetRef.current.rotation.y += 0.12 * delta;
     }
     if (raysRef.current) {
-      raysRef.current.rotation.y += 0.001;
+      raysRef.current.rotation.y += 0.06 * delta;
     }
   });
 
@@ -40,7 +40,6 @@ const GlobeHologram = React.memo(function GlobeHologram(props) {
         <mesh
           name="Earth_rays_2"
           ref={raysRef}
-          k
           castShadow
           receiveShadow
           geometry={nodes.Earth_rays_2.geometry}

@@ -15,17 +15,17 @@ const AboutDetails = () => {
   }
 
   return (
-    <section className="py-20 w-full">
-      <div className="grid grid-cols-12 gap-4 xs:gap-6 md:gap-8 w-full">
+    <section className="py-24 md:py-32 w-full">
+      <div className="grid grid-cols-12 gap-6 xs:gap-8 md:gap-10 lg:gap-12 w-full">
         <ItemLayout
           className={
             "col-span-full lg:col-span-8 row-span-2 flex-col items-start"
           }
         >
-          <h2 className="text-xl md:text-2xl text-left w-full capitalize">
+          <h2 className="text-xl md:text-2xl text-left w-full capitalize mb-6">
             Who am I?
           </h2>
-          <p className="font-light  text-xs sm:text-sm md:text-base   ">
+          <p className="font-light text-xs sm:text-sm md:text-base max-w-prose leading-relaxed tracking-wide">
             I have a passion for several things that bring me both joy and
             balance in life. Spending time with my <b>family and friends</b> is
             something I truly cherish, as it’s always rewarding to share laughs,

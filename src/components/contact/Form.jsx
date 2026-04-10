@@ -11,8 +11,8 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.3,
-      delayChildren: 0.3,
+      staggerChildren: 0.4,
+      delayChildren: 0.35,
     },
   },
 };
@@ -75,10 +75,10 @@ export default function Form() {
         initial="hidden"
         animate="show"
         onSubmit={handleSubmit(onSubmit)}
-        className="max-w-md w-full flex flex-col items-center justify-center space-y-4"
+        className="max-w-lg w-full flex flex-col items-center justify-center space-y-6"
       >
         <motion.input
-          variants={{ item }}
+          variants={item}
           type="text"
           placeholder="Name"
           {...register("name", {
@@ -88,7 +88,7 @@ export default function Form() {
               message: "Name should be atleast 3 characters long.",
             },
           })}
-          className="w-full p-2 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 custom-bg"
+          className="w-full p-3 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 custom-bg"
         />
         {errors.name && (
           <span className="inline-block self-start text-accent">
@@ -100,7 +100,7 @@ export default function Form() {
           type="email"
           placeholder="Email"
           {...register("email", { required: "Please enter a valid Email." })}
-          className="w-full p-2 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 custom-bg"
+          className="w-full p-3 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 custom-bg"
         />
 
         {errors.email && (
@@ -122,7 +122,7 @@ export default function Form() {
               message: "Min length of message is 50 characters.",
             },
           })}
-          className="w-full p-2 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 custom-bg"
+          className="w-full p-3 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 custom-bg"
         />
         {errors.message && (
           <span className="inline-block self-start text-accent">

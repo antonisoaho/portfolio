@@ -1,8 +1,11 @@
 import Image from "next/image";
 import bg from "../../public/background/home-background.jpg";
 import Navigation from "@/components/navigation";
-import RenderModel from "@/components/RenderModel";
 import dynamic from "next/dynamic";
+
+const RenderModel = dynamic(() => import("@/components/RenderModel"), {
+  ssr: false,
+});
 const StyledPlanet = dynamic(() => import("@/components/models/StyledPlanet"), {
   ssr: false,
 });
@@ -17,11 +20,11 @@ export const metadata = {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "Projects | Anton Isoaho",
-    description: "Explore the projects by Anton Isoaho",
+    title: "Anton Isoaho",
+    description: "Portfolio — developer and creative technologist.",
     type: "website",
-    url: "https://nextjs-portfolio-ecru-two.vercel.app/projects",
-    image: "/path/to/your/image.jpg",
+    url: "https://www.isoaho.se/",
+    images: [{ url: "/preview/home-page.png" }],
   },
 };
 
@@ -31,7 +34,6 @@ export default function Home() {
       <Image
         priority
         sizes="100vw"
-        loading="eager"
         placeholder="blur"
         src={bg}
         alt="background-image"

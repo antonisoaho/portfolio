@@ -13,13 +13,13 @@ const StyledPlanet = React.memo(function StyledPlanet(props) {
   );
   const { actions } = useAnimations(animations, group);
 
-  useFrame(() => {
+  useFrame((_, delta) => {
     if (planetRef.current) {
-      planetRef.current.rotation.y += 0.001;
+      planetRef.current.rotation.y += 0.06 * delta;
     }
 
     if (cloudRef.current) {
-      cloudRef.current.rotation.y -= 0.0003;
+      cloudRef.current.rotation.y -= 0.018 * delta;
     }
   });
   return (

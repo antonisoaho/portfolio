@@ -7,9 +7,9 @@ import { useFrame } from "@react-three/fiber";
 const InhabitedPlanet = React.memo(function InhabitedPlanet(props) {
   const group = useRef();
   const { nodes, materials } = useGLTF("/models/inhabited-transformed.glb");
-  useFrame(() => {
-    group.current.rotation.y += 0.001;
-    group.current.rotation.x += 0.001;
+  useFrame((_, delta) => {
+    group.current.rotation.y += 0.06 * delta;
+    group.current.rotation.x += 0.06 * delta;
   });
 
   return (
