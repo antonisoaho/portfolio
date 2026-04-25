@@ -1,5 +1,3 @@
-import Image from "next/image";
-import bg from "../../../../public/background/about-background.jpg";
 import AboutDetails from "@/components/about";
 import dynamic from "next/dynamic";
 
@@ -14,36 +12,35 @@ export const metadata = {
     template: "Anton Isoaho | About",
     default: "Anton Isoaho | About",
   },
-  description: "My first portfolio",
+  description:
+    "Learn more about Anton Isoaho, a Swedish system developer and GoLife co-owner building practical SaaS and cloud products.",
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
     title: "About | Anton Isoaho",
-    description: "Learn more about Anton Isoaho",
+    description:
+      "System developer focused on practical software, clear workflows, and user-first cloud products.",
     type: "website",
     url: "https://www.isoaho.se/about",
-    image: "/background/about-background.jpg",
+    images: [{ url: "/preview/home-page.png" }],
   },
   twitter: {
     card: "summary_large_image",
-    creator: "@handle",
+    creator: "@antonisoaho",
     title: "About | Anton Isoaho",
-    description: "Learn more about Anton Isoaho",
-    image: "/background/about-background.jpg",
+    description:
+      "System developer focused on practical software, clear workflows, and user-first cloud products.",
+    images: ["/preview/home-page.png"],
   },
 };
 
 export default function Home() {
   return (
     <div className="w-full xl:max-w-7xl">
-      <Image
-        src={bg}
-        priority
-        sizes="100vw"
-        placeholder="blur"
-        alt="Next.js Portfolio website's about page background image"
-        className="-z-50 fixed top-0 left-0 w-full h-full object-cover object-center opacity-50"
+      <div
+        className="page-gradient-soft"
+        aria-hidden="true"
       />
 
       <div className="w-full h-3/5 xs:h-3/4 sm:h-screen absolute top-1/2 -translate-y-1/2 left-0">
@@ -58,8 +55,8 @@ export default function Home() {
             Anton Isoaho
           </h1>
           <p className="font-light text-foreground text-lg sm:text-xl w-full leading-relaxed tracking-wide">
-            Welcome to my portfolio. I&apos;m a passionate developer dedicated
-            to turning ideas into reality.
+            I build practical web apps and cloud software that make everyday
+            work simpler, clearer, and easier to trust.
           </p>
         </div>
       </div>

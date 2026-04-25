@@ -1,5 +1,3 @@
-import Image from "next/image";
-import bg from "../../../../public/background/contact-background.jpg";
 import Form from "@/components/contact/Form";
 import dynamic from "next/dynamic";
 
@@ -17,13 +15,15 @@ export const metadata = {
     template: "Anton Isoaho",
     default: "Anton Isoaho | Contact",
   },
-  description: "My first portfolio",
+  description:
+    "Contact Anton Isoaho for web app, SaaS, and cloud development focused on practical outcomes and clear user experience.",
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
     title: "Contact | Anton Isoaho",
-    description: "Get in touch with Anton Isoaho",
+    description:
+      "Get in touch with Anton Isoaho about practical web app, SaaS, and cloud software projects.",
     type: "website",
     url: "https://www.isoaho.se/contact",
     images: [{ url: "/preview/contact-page.png" }],
@@ -33,32 +33,36 @@ export const metadata = {
 export default function Contact() {
   return (
     <>
-      <Image
-        src={bg}
-        alt="Next.js Portfolio website's contact page background image"
-        priority
-        sizes="100vw"
-        placeholder="blur"
-        className="-z-50 fixed top-0 left-0 w-full h-full object-cover object-center opacity-50"
+      <div
+        className="page-gradient-soft"
+        aria-hidden="true"
       />
 
-      <article className="relative w-full flex flex-col items-center justify-center space-y-12 md:space-y-16 max-w-2xl mx-auto px-4">
+      <section
+        aria-labelledby="contact-heading"
+        className="relative w-full flex flex-col items-center justify-center space-y-12 md:space-y-16 max-w-2xl mx-auto px-4"
+      >
         <div className="flex flex-col items-center justify-center space-y-8 w-full text-center">
-          <h1 className="text-accent font-semibold text-4xl sm:text-5xl capitalize tracking-wide">
+          <h1
+            id="contact-heading"
+            className="text-accent font-semibold text-4xl sm:text-5xl capitalize tracking-wide"
+          >
             Get in Touch
           </h1>
           <p className="font-light text-base sm:text-lg leading-relaxed tracking-wide max-w-prose">
-            Are you looking for a developer to bring your ideas to life?
+            Looking for a developer to turn ideas into practical digital
+            products?
             <br />
             <br />
-            I&apos;m here to help you create beautiful and functional websites.
+            I help teams build clear, reliable web apps and cloud solutions that
+            work in real day-to-day use.
             <br />
             <br />
-            Feel free to reach out and let&apos;s make something great together!
+            Reach out and let&apos;s build something meaningful together.
           </p>
         </div>
         <Form />
-      </article>
+      </section>
 
       <div className="w-full sm:h-screen h-full lg:w-72 absolute top-28 lg:top-1/3 -translate-y-1/2 left-0 z-10">
         <RenderModel>

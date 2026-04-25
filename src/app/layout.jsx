@@ -14,7 +14,8 @@ export const metadata = {
     template: "Anton Isoaho",
     default: "Anton Isoaho | Next.js Portfolio",
   },
-  description: "My first portfolio",
+  description:
+    "Portfolio of Anton Isoaho, a Swedish system developer building practical web apps, SaaS, and cloud software.",
   icons: {
     icon: "/favicon.ico",
   },

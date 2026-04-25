@@ -4,7 +4,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import { Toaster, toast } from "sonner";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const container = {
   hidden: { opacity: 0 },
@@ -23,6 +23,7 @@ const item = {
 };
 
 export default function Form() {
+  const shouldReduceMotion = useReducedMotion();
   const {
     register,
     handleSubmit,
@@ -72,63 +73,111 @@ export default function Form() {
       <Toaster richColors={true} />
       <motion.form
         variants={container}
-        initial="hidden"
-        animate="show"
+        initial={shouldReduceMotion ? false : "hidden"}
+        animate={shouldReduceMotion ? {} : "show"}
         onSubmit={handleSubmit(onSubmit)}
         className="max-w-lg w-full flex flex-col items-center justify-center space-y-6"
       >
-        <motion.input
-          variants={item}
-          type="text"
-          placeholder="Name"
-          {...register("name", {
-            required: "This field is required!",
-            minLength: {
-              value: 3,
-              message: "Name should be atleast 3 characters long.",
-            },
-          })}
-          className="w-full p-3 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 custom-bg"
-        />
-        {errors.name && (
-          <span className="inline-block self-start text-accent">
-            {errors.name.message}
-          </span>
-        )}
-        <motion.input
-          variants={item}
-          type="email"
-          placeholder="Email"
-          {...register("email", { required: "Please enter a valid Email." })}
-          className="w-full p-3 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 custom-bg"
-        />
+        <motion.div variants={item} className="w-full">
+          <label htmlFor="name" className="mb-2 inline-block text-sm font-medium">
+            Name
+          </label>
+          <input
+            id="name"
+            type="text"
+            placeholder="Your name"
+            aria-invalid={errors.name ? "true" : "false"}
+            aria-describedby={errors.name ? "name-error" : undefined}
+            {...register("name", {
+              required: "Name is required.",
+              minLength: {
+                value: 3,
+                message: "Name must be at least 3 characters long.",
+              },
+            })}
+            className="w-full p-3 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/70 custom-bg"
+          />
+          {errors.name && (
+            <span
+              id="name-error"
+              role="alert"
+              className="mt-2 inline-block self-start text-accent"
+            >
+              {errors.name.message}
+            </span>
+          )}
+        </motion.div>
 
-        {errors.email && (
-          <span className="inline-block self-start text-accent">
-            {errors.email.message}
-          </span>
-        )}
-        <motion.textarea
-          variants={item}
-          placeholder="Message..."
-          {...register("message", {
-            required: true,
-            maxLength: {
-              value: 500,
-              message: "Max length of message is 500 characters.",
-            },
-            minLength: {
-              value: 50,
-              message: "Min length of message is 50 characters.",
-            },
-          })}
-          className="w-full p-3 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 custom-bg"
-        />
-        {errors.message && (
-          <span className="inline-block self-start text-accent">
-            {errors.message.message}
-          </span>
-        )}
+        <motion.div variants={item} className="w-full">
+          <label htmlFor="email" className="mb-2 inline-block text-sm font-medium">
+            Email
+          </label>
+          <input
+            id="email"
+            type="email"
+            placeholder="you@example.com"
+            aria-invalid={errors.email ? "true" : "false"}
+            aria-describedby={errors.email ? "email-error" : undefined}
+            {...register("email", {
+              required: "Email is required.",
+              pattern: {
+                value: /\S+@\S+\.\S+/,
+                message: "Please enter a valid email address.",
+              },
+            })}
+            className="w-full p-3 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/70 custom-bg"
+          />
+          {errors.email && (
+            <span
+              id="email-error"
+              role="alert"
+              className="mt-2 inline-block self-start text-accent"
+            >
+              {errors.email.message}
+            </span>
+          )}
+        </motion.div>
+
+        <motion.div variants={item} className="w-full">
+          <label htmlFor="message" className="mb-2 inline-block text-sm font-medium">
+            Message
+          </label>
+          <textarea
+            id="message"
+            placeholder="Tell me about your project..."
+            aria-invalid={errors.message ? "true" : "false"}
+            aria-describedby={errors.message ? "message-error" : "message-help"}
+            {...register("message", {
+              required: "Message is required.",
+              maxLength: {
+                value: 500,
+                message: "Max length of message is 500 characters.",
+              },
+              minLength: {
+                value: 50,
+                message: "Min length of message is 50 characters.",
+              },
+            })}
+            className="w-full min-h-40 p-3 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/70 custom-bg"
+          />
+          {!errors.message && (
+            <span
+              id="message-help"
+              className="mt-2 inline-block text-xs text-foreground/90"
+            >
+              Minimum 50 characters, maximum 500 characters.
+            </span>
+          )}
+          {errors.message && (
+            <span
+              id="message-error"
+              role="alert"
+              className="mt-2 inline-block self-start text-accent"
+            >
+              {errors.message.message}
+            </span>
+          )}
+        </motion.div>
         <motion.input
           variants={item}
           value="Send me a message!"

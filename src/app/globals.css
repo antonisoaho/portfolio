@@ -16,8 +16,96 @@
     animation-play-state: paused;
   }
 
+  .page-gradient {
+    @apply fixed inset-0 -z-50 pointer-events-none bg-site-gradient;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .page-gradient::before {
+    content: "";
+    position: absolute;
+    inset: -16%;
+    background-image: conic-gradient(
+      from 20deg at 35% 30%,
+      rgba(54, 201, 255, 0.12),
+      rgba(121, 107, 255, 0.1),
+      rgba(254, 190, 91, 0.08),
+      rgba(54, 201, 255, 0.12)
+    );
+    mix-blend-mode: screen;
+    filter: blur(85px) saturate(1.2);
+    animation: gradient-drift 26s ease-in-out infinite alternate;
+    transform-origin: 50% 50%;
+  }
+
+  .page-gradient::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+        55% 40% at 50% 15%,
+        rgba(255, 255, 255, 0.07) 0%,
+        rgba(255, 255, 255, 0) 70%
+      ),
+      radial-gradient(
+        45% 30% at 50% 88%,
+        rgba(0, 0, 0, 0.34) 0%,
+        rgba(0, 0, 0, 0) 72%
+      ),
+      radial-gradient(
+        38% 30% at 15% 45%,
+        rgba(41, 185, 255, 0.12) 0%,
+        rgba(41, 185, 255, 0) 70%
+      );
+    animation: glow-breathe 14s ease-in-out infinite;
+  }
+
+  .page-gradient-soft {
+    @apply fixed inset-0 -z-50 pointer-events-none bg-site-gradient-soft;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .page-gradient-soft::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background-image: radial-gradient(
+        40% 36% at 25% 22%,
+        rgba(99, 212, 255, 0.12) 0%,
+        rgba(99, 212, 255, 0) 68%
+      ),
+      radial-gradient(
+        48% 38% at 76% 78%,
+        rgba(254, 190, 91, 0.13) 0%,
+        rgba(254, 190, 91, 0) 72%
+      ),
+      radial-gradient(
+        35% 28% at 58% 26%,
+        rgba(130, 113, 255, 0.14) 0%,
+        rgba(130, 113, 255, 0) 72%
+      );
+    mix-blend-mode: screen;
+    filter: blur(58px) saturate(1.1);
+    animation: gradient-drift 28s ease-in-out infinite alternate-reverse;
+  }
+
+  .page-gradient-soft::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+      120deg,
+      rgba(6, 12, 24, 0.2) 0%,
+      rgba(6, 12, 24, 0) 35%,
+      rgba(0, 0, 0, 0.28) 100%
+    );
+    animation: glow-breathe 18s ease-in-out infinite;
+  }
+
   .custom-bg {
-    @apply bg-background/20 border border-accent/30 border-solid backdrop-blur-[6px] shadow-glass-inset hover:shadow-glass-sm;
+    @apply bg-background/70 border border-accent/35 border-solid backdrop-blur-[8px] shadow-glass-inset hover:shadow-glass-sm;
   }
 }
 
@@ -33,5 +121,43 @@
   100% {
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(var(--accent), 0.35);
+  }
+}
+
+@keyframes gradient-drift {
+  0% {
+    transform: translate3d(-2%, -1%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(3%, 2%, 0) scale(1.06);
+  }
+  100% {
+    transform: translate3d(-1%, 3%, 0) scale(1.02);
+  }
+}
+
+@keyframes glow-breathe {
+  0% {
+    opacity: 0.78;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.82;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin-slow,
+  .animate-spin-slow-reverse {
+    animation: none !important;
+  }
+
+  .page-gradient::before,
+  .page-gradient::after,
+  .page-gradient-soft::before,
+  .page-gradient-soft::after {
+    animation: none;
   }
 }

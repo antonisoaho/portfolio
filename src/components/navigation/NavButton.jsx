@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const getIcon = (icon) => {
   switch (icon) {
@@ -84,49 +84,57 @@ const NavButton = ({
   newTab,
   labelDirection = "right",
 }) => {
+  const shouldReduceMotion = useReducedMotion();
+  const linkLabel = newTab ? `${label} (opens in new tab)` : label;
+
   return (
     <ResponsiveComponent>
       {({ size }) => {
         return size && size >= 480 ? (
-          <div
+          <motion.li
+            variants={item}
             className="absolute w-fit cursor-pointer z-50"
             style={{ transform: `translate(${x}, ${y})` }}
           >
             <NavLink
-              variants={item}
               href={link}
               target={newTab ? "_blank" : "_self"}
-              className="text-foreground rounded-full flex items-center justify-center custom-bg"
-              aria-label={label}
-              name={label}
+              rel={newTab ? "noopener noreferrer" : undefined}
+              className="group text-foreground rounded-full flex items-center justify-center custom-bg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              aria-label={linkLabel}
             >
-              <span className="relative w-14 h-14 p-4 animate-spin-slow-reverse hover:text-accent group-hover:pause">
+              <span
+                className={clsx(
+                  "relative w-14 h-14 p-4 hover:text-accent",
+                  shouldReduceMotion ? "" : "animate-spin-slow-reverse group-hover:pause"
+                )}
+              >
                 {getIcon(icon)}
-
-                <span className="peer bg-transparent absolute top-0 left-0 w-full h-full" />
-                <span className="absolute hidden peer-hover:block px-2 py-1 left-full mx-2 top-1/2 -translate-y-1/2 bg-background text-foreground text-sm rounded-md shadow-lg whitespace-nowrap">
+                <span className="sr-only">{linkLabel}</span>
+                <span className="absolute hidden group-hover:block group-focus-within:block px-2 py-1 left-full mx-2 top-1/2 -translate-y-1/2 bg-background text-foreground text-sm rounded-md shadow-lg whitespace-nowrap">
                   {label}
                 </span>
               </span>
             </NavLink>
-          </div>
+          </motion.li>
         ) : (
-          <div className="w-fit cursor-pointer z-50">
+          <motion.li
+            variants={item}
+            className="w-fit cursor-pointer z-50"
+          >
             <NavLink
-              variants={item}
               href={link}
               target={newTab ? "_blank" : "_self"}
-              className="text-foreground rounded-full flex items-center justify-center custom-bg"
-              aria-label={label}
-              name={label}
+              rel={newTab ? "noopener noreferrer" : undefined}
+              className="group text-foreground rounded-full flex items-center justify-center custom-bg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              aria-label={linkLabel}
             >
               <span className="relative w-10 h-10 xs:w-14 xs:h-14 p-2.5 xs:p-4 hover:text-accent">
                 {getIcon(icon)}
-
-                <span className="peer bg-transparent absolute top-0 left-0 w-full h-full" />
+                <span className="sr-only">{linkLabel}</span>
                 <span
                   className={clsx(
-                    "absolute hidden peer-hover:block px-2 py-1 mx-2 top-1/2 -translate-y-1/2 bg-background text-foreground text-sm rounded-md shadow-lg whitespace-nowrap",
+                    "absolute hidden group-hover:block group-focus-within:block px-2 py-1 mx-2 top-1/2 -translate-y-1/2 bg-background text-foreground text-sm rounded-md shadow-lg whitespace-nowrap",
                     labelDirection === "left"
                       ? "right-full left-auto"
                       : "left-full right-auto"
@@ -136,7 +144,7 @@ const NavButton = ({
                 </span>
               </span>
             </NavLink>
-          </div>
+          </motion.li>
         );
       }}
     </ResponsiveComponent>

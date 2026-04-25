@@ -1,5 +1,3 @@
-import Image from "next/image";
-import bg from "../../public/background/home-background.jpg";
 import Navigation from "@/components/navigation";
 import dynamic from "next/dynamic";
 
@@ -15,13 +13,15 @@ export const metadata = {
     template: "Anton Isoaho",
     default: "Anton Isoaho | Next.js Portfolio",
   },
-  description: "My first portfolio",
+  description:
+    "Portfolio of Anton Isoaho, focused on practical software, clear workflows, and user-first cloud products.",
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
     title: "Anton Isoaho",
-    description: "Portfolio — developer and creative technologist.",
+    description:
+      "System developer building practical web apps, SaaS, and cloud products that simplify real work.",
     type: "website",
     url: "https://www.isoaho.se/",
     images: [{ url: "/preview/home-page.png" }],
@@ -31,14 +31,10 @@ export const metadata = {
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between relative">
-      <Image
-        priority
-        sizes="100vw"
-        placeholder="blur"
-        src={bg}
-        alt="background-image"
-        fill
-        className="-z-50 w-full h-full object-cover object-center opacity-50"
+      <h1 className="sr-only">Anton Isoaho - System Developer Portfolio</h1>
+      <div
+        className="page-gradient"
+        aria-hidden="true"
       />
 
       <div className="w-full h-screen">

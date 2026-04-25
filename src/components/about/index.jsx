@@ -22,41 +22,51 @@ const AboutDetails = () => {
             "col-span-full lg:col-span-8 row-span-2 flex-col items-start"
           }
         >
-          <h2 className="text-xl md:text-2xl text-left w-full capitalize mb-6">
+          <h2 className="text-xl md:text-2xl text-left w-full max-w-prose capitalize mb-6">
             Who am I?
           </h2>
-          <p className="font-light text-xs sm:text-sm md:text-base max-w-prose leading-relaxed tracking-wide">
-            I have a passion for several things that bring me both joy and
-            balance in life. Spending time with my <b>family and friends</b> is
-            something I truly cherish, as it’s always rewarding to share laughs,
-            meaningful conversations, and unforgettable moments with the people
-            closest to me. <br />I love playing <b>floorball</b> because it’s
-            fast-paced and keeps me active while enjoying teamwork and strategy
-            on the field. Another passion of mine is <b>coding</b> — I enjoy the
-            challenge of problem-solving, creating something from nothing, and
-            constantly learning new skills in a field that’s always evolving.
-            Lastly, I find playing <b>computer games </b>
-            incredibly fun; it’s a great way to unwind, explore virtual worlds,
-            and sometimes even connect with others who share similar interests.
+          <p className="font-light text-xs sm:text-sm md:text-base w-full max-w-prose text-left leading-relaxed tracking-wide">
+            I&apos;m Anton Isoaho, a Swedish <b>system developer</b> and
+            co-owner of <b>GoLife AB</b>. I build practical SaaS and cloud
+            software that turns messy workflows into clear, usable tools.
+            <br />
+            <br />
+            I care about <b>focused product experiences</b>: reducing friction,
+            respecting people&apos;s time, and making technology feel calm
+            instead of complicated. My work combines coding, product thinking,
+            and business understanding so the end result is not only technically
+            sound, but also genuinely useful in day-to-day operations.
+            <br />
+            <br />
+            With a background in <b>development, operations, and leadership</b>,
+            I enjoy solving real problems with no ego and clear communication.
+            I&apos;m always learning, always building, and always aiming to ship
+            software people can trust.
           </p>
         </ItemLayout>
 
         <ItemLayout
           className={" col-span-full xs:col-span-6 lg:col-span-4 text-accent"}
         >
-          <p className="font-semibold w-full text-left text-2xl sm:text-5xl">
-            {age} <sub className="font-semibold text-base">years old</sub>
-          </p>
+          <dl className="w-full">
+            <dt className="sr-only">Age</dt>
+            <dd className="font-semibold w-full text-left text-2xl sm:text-5xl">
+              {age} <sub className="font-semibold text-base">years old</sub>
+            </dd>
+          </dl>
         </ItemLayout>
 
         <ItemLayout
           className={"col-span-full xs:col-span-6 lg:col-span-4 text-accent"}
         >
-          <p className="font-semibold w-full text-left text-2xl sm:text-5xl">
-            {new Date().getFullYear() - new Date(2023, 8, 1).getFullYear()}
-            {"+ "}
-            <sub className="font-semibold text-base">years of experience</sub>
-          </p>
+          <dl className="w-full">
+            <dt className="sr-only">Development experience</dt>
+            <dd className="font-semibold w-full text-left text-2xl sm:text-5xl">
+              {new Date().getFullYear() - new Date(2023, 8, 1).getFullYear()}
+              {"+ "}
+              <sub className="font-semibold text-base">years of experience</sub>
+            </dd>
+          </dl>
         </ItemLayout>
 
         <ItemLayout
@@ -65,8 +75,11 @@ const AboutDetails = () => {
           <img
             className="w-full h-auto"
             src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}/top-langs?username=antonisoaho&&role=OWNER,COLLABORATOR,ORGANIZATION_MEMBER&theme=transparent&hide_border=true&title_color=FEBE5B&icon_color=FEBE5B&text_bold=false`}
-            alt="Used languages"
+            alt="Most used programming languages across Anton's GitHub activity."
             loading="lazy"
+            decoding="async"
+            width="495"
+            height="195"
           />
         </ItemLayout>
 
@@ -74,8 +87,11 @@ const AboutDetails = () => {
           <img
             className="w-full h-auto"
             src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}?username=antonisoaho&&role=OWNER,COLLABORATOR,ORGANIZATION_MEMBER&theme=transparent&hide_border=true&title_color=FEBE5B&text_color=FFFFFF&icon_color=FEBE5B&text_bold=false`}
-            alt="Anton Isoaho"
+            alt="GitHub profile statistics for Anton Isoaho, including repositories and contribution metrics."
             loading="lazy"
+            decoding="async"
+            width="495"
+            height="195"
           />
         </ItemLayout>
 
@@ -85,8 +101,11 @@ const AboutDetails = () => {
             src={
               "https://skillicons.dev/icons?i=aws,azure,cs,css,docker,dotnet,dynamodb,express,github,githubactions,heroku,html,js,materialui,mongodb,nextjs,nodejs,npm,postman,react,redux,sass,sqlite,tailwind,ts,visualstudio,vscode"
             }
-            alt="Anton Isoaho"
+            alt="Skill icons representing Anton's core technologies, including JavaScript, React, Next.js, Node.js, .NET, and cloud tooling."
             loading="lazy"
+            decoding="async"
+            width="1160"
+            height="160"
           />
         </ItemLayout>
 
@@ -94,8 +113,11 @@ const AboutDetails = () => {
           <img
             className="w-full h-auto"
             src={`${process.env.NEXT_PUBLIC_GITHUB_STREAK_STATS_URL}?user=antonisoaho&theme=dark&background=EB545400&currStreakLabel=FEBE5B&ring=FEBE5B`}
-            alt="Anton Isoaho"
+            alt="GitHub contribution streak statistics for Anton Isoaho."
             loading="lazy"
+            decoding="async"
+            width="495"
+            height="195"
           />
         </ItemLayout>
 

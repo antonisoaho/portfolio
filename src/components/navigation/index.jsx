@@ -4,7 +4,8 @@ import { BtnList } from "@/app/data";
 import React from "react";
 import useScreenSize from "@/hooks/useScreenSize";
 import ResponsiveComponent from "@/components/ResponsiveComponent";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import clsx from "clsx";
 
 const container = {
   hidden: { opacity: 0 },
@@ -19,20 +20,27 @@ const container = {
 const Navigation = () => {
   const angleIncrement = 360 / BtnList.length;
   const size = useScreenSize();
+  const shouldReduceMotion = useReducedMotion();
 
   const isLarge = size >= 1024;
   const isMedium = size >= 768;
 
   return (
-    <div className="w-full fixed h-screen flex items-center justify-center">
+    <nav
+      aria-label="Primary"
+      className="w-full fixed h-screen flex items-center justify-center"
+    >
       <ResponsiveComponent>
         {({ size }) => {
           return size && size >= 480 ? (
-            <motion.div
+            <motion.ul
               variants={container}
-              initial="hidden"
-              animate="show"
-              className="w-max flex items-center group justify-center relative hover:pause animate-spin-slow"
+              initial={shouldReduceMotion ? false : "hidden"}
+              animate={shouldReduceMotion ? {} : "show"}
+              className={clsx(
+                "w-max flex items-center group justify-center relative",
+                shouldReduceMotion ? "" : "hover:pause animate-spin-slow"
+              )}
             >
               {BtnList.map((btn, index) => {
                 const angleRad = (index * angleIncrement * Math.PI) / 180;
@@ -54,13 +62,13 @@ const Navigation = () => {
                   />
                 );
               })}
-            </motion.div>
+            </motion.ul>
           ) : (
             <>
-              <motion.div
+              <motion.ul
                 variants={container}
-                initial="hidden"
-                animate="show"
+                initial={shouldReduceMotion ? false : "hidden"}
+                animate={shouldReduceMotion ? {} : "show"}
                 className="w-full px-2.5 xs:p-0 xs:w-max flex flex-col space-y-4 items-start xs:items-center group justify-center relative"
               >
                 {BtnList.slice(0, BtnList.length / 2).map((btn, index) => {
@@ -83,11 +91,11 @@ const Navigation = () => {
                     />
                   );
                 })}
-              </motion.div>
-              <motion.div
+              </motion.ul>
+              <motion.ul
                 variants={container}
-                initial="hidden"
-                animate="show"
+                initial={shouldReduceMotion ? false : "hidden"}
+                animate={shouldReduceMotion ? {} : "show"}
                 className="w-full px-2.5 xs:p-0 xs:w-max flex flex-col space-y-4 items-end xs:items-center group justify-center relative"
               >
                 {BtnList.slice(BtnList.length / 2, BtnList.length).map(
@@ -103,12 +111,12 @@ const Navigation = () => {
                     );
                   }
                 )}
-              </motion.div>
+              </motion.ul>
             </>
           );
         }}
       </ResponsiveComponent>
-    </div>
+    </nav>
   );
 };
 
