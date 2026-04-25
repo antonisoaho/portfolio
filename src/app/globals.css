@@ -4,10 +4,17 @@
 
 @layer base {
   :root {
-    --background: 27 27 27;
-    --foreground: 225 225 225;
-    --muted: 115 115 115;
-    --accent: 254 190 91;
+    --background: 9 12 22;
+    --foreground: 234 242 255;
+    --muted: 154 169 194;
+    --accent: 116 215 255;
+    --panel: 22 30 52;
+    --cyan: 82 224 255;
+    --violet: 140 114 255;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 }
 
@@ -25,17 +32,25 @@
   .page-gradient::before {
     content: "";
     position: absolute;
-    inset: -16%;
-    background-image: conic-gradient(
-      from 20deg at 35% 30%,
-      rgba(54, 201, 255, 0.12),
-      rgba(121, 107, 255, 0.1),
-      rgba(254, 190, 91, 0.08),
-      rgba(54, 201, 255, 0.12)
-    );
+    inset: -18%;
+    background-image: linear-gradient(
+        130deg,
+        rgba(var(--cyan), 0.16) 0%,
+        rgba(var(--cyan), 0) 42%
+      ),
+      linear-gradient(
+        310deg,
+        rgba(var(--violet), 0.18) 0%,
+        rgba(var(--violet), 0) 40%
+      ),
+      linear-gradient(
+        40deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0) 32%
+      );
     mix-blend-mode: screen;
-    filter: blur(85px) saturate(1.2);
-    animation: gradient-drift 26s ease-in-out infinite alternate;
+    filter: blur(74px) saturate(1.2);
+    animation: gradient-drift 30s ease-in-out infinite alternate;
     transform-origin: 50% 50%;
   }
 
@@ -43,20 +58,25 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(
-        55% 40% at 50% 15%,
-        rgba(255, 255, 255, 0.07) 0%,
-        rgba(255, 255, 255, 0) 70%
+    background-image: linear-gradient(
+        112deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0) 44%
+      ),
+      linear-gradient(
+        304deg,
+        rgba(98, 222, 255, 0.14) 0%,
+        rgba(98, 222, 255, 0) 40%
+      ),
+      linear-gradient(
+        214deg,
+        rgba(126, 107, 255, 0.15) 0%,
+        rgba(126, 107, 255, 0) 42%
       ),
       radial-gradient(
-        45% 30% at 50% 88%,
-        rgba(0, 0, 0, 0.34) 0%,
-        rgba(0, 0, 0, 0) 72%
-      ),
-      radial-gradient(
-        38% 30% at 15% 45%,
-        rgba(41, 185, 255, 0.12) 0%,
-        rgba(41, 185, 255, 0) 70%
+        60% 46% at 50% 98%,
+        rgba(3, 7, 15, 0.7) 0%,
+        rgba(3, 7, 15, 0) 72%
       );
     animation: glow-breathe 14s ease-in-out infinite;
   }
@@ -70,24 +90,24 @@
   .page-gradient-soft::before {
     content: "";
     position: absolute;
-    inset: -20%;
+    inset: -14%;
     background-image: radial-gradient(
-        40% 36% at 25% 22%,
-        rgba(99, 212, 255, 0.12) 0%,
-        rgba(99, 212, 255, 0) 68%
+        45% 34% at 20% 22%,
+        rgba(var(--cyan), 0.16) 0%,
+        rgba(var(--cyan), 0) 70%
       ),
       radial-gradient(
-        48% 38% at 76% 78%,
-        rgba(254, 190, 91, 0.13) 0%,
-        rgba(254, 190, 91, 0) 72%
+        42% 36% at 80% 22%,
+        rgba(var(--violet), 0.16) 0%,
+        rgba(var(--violet), 0) 70%
       ),
       radial-gradient(
-        35% 28% at 58% 26%,
-        rgba(130, 113, 255, 0.14) 0%,
-        rgba(130, 113, 255, 0) 72%
+        56% 40% at 50% 85%,
+        rgba(5, 9, 18, 0.64) 0%,
+        rgba(5, 9, 18, 0) 72%
       );
     mix-blend-mode: screen;
-    filter: blur(58px) saturate(1.1);
+    filter: blur(62px) saturate(1.06);
     animation: gradient-drift 28s ease-in-out infinite alternate-reverse;
   }
 
@@ -96,16 +116,36 @@
     position: absolute;
     inset: 0;
     background-image: linear-gradient(
-      120deg,
-      rgba(6, 12, 24, 0.2) 0%,
-      rgba(6, 12, 24, 0) 35%,
-      rgba(0, 0, 0, 0.28) 100%
-    );
+        125deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0) 42%
+      ),
+      linear-gradient(
+        298deg,
+        rgba(var(--violet), 0.08) 0%,
+        rgba(var(--violet), 0) 45%
+      );
     animation: glow-breathe 18s ease-in-out infinite;
   }
 
   .custom-bg {
-    @apply bg-background/70 border border-accent/35 border-solid backdrop-blur-[8px] shadow-glass-inset hover:shadow-glass-sm;
+    @apply bg-panel/45 border border-white/20 border-solid backdrop-blur-[14px] shadow-glass-card;
+  }
+
+  .glass-header {
+    @apply bg-panel/40 border border-white/25 backdrop-blur-xl shadow-glass-glow rounded-3xl;
+  }
+
+  .glass-panel {
+    @apply custom-bg rounded-3xl;
+  }
+
+  .mesh-overlay {
+    @apply absolute inset-0 pointer-events-none bg-glass-mesh opacity-60;
+  }
+
+  .anchor-section {
+    scroll-margin-top: 7.5rem;
   }
 }
 

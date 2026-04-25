@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useMemo, useState } from "react";
 
-const STAR_COUNT_DESKTOP = 44;
-const STAR_COUNT_MOBILE = 24;
+const STAR_COUNT_DESKTOP = 26;
+const STAR_COUNT_MOBILE = 14;
 
 const createStars = (count) =>
   Array.from({ length: count }, (_, id) => ({
@@ -11,8 +11,8 @@ const createStars = (count) =>
     left: `${Math.random() * 100}%`,
     animationDuration: `${Math.random() * 2.8 + 2.2}s`,
     animationDelay: `${Math.random() * 6}s`,
-    opacity: 0.25 + Math.random() * 0.55,
-    size: 6 + Math.floor(Math.random() * 5),
+    opacity: 0.12 + Math.random() * 0.28,
+    size: 3 + Math.floor(Math.random() * 3),
   }));
 
 const StarsBackground = () => {

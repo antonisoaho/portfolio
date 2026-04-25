@@ -17,7 +17,7 @@ export const metadata = {
   description:
     "Portfolio of Anton Isoaho, a Swedish system developer building practical web apps, SaaS, and cloud software.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.svg",
   },
 };
 export default function RootLayout({ children }) {
@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       <head>
         <link
           rel="icon"
-          href="/favicon.ico"
+          href="/favicon.svg"
         />
       </head>
       <body

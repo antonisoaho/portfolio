@@ -1,0 +1,42 @@
+export const featuredProjects = [
+  {
+    id: "lokkedin",
+    title: "LokkedIn",
+    subtitle: "Focus app that blocks distractions with native controls",
+    href: "https://lokkedin.com",
+    layout: "col-span-2 row-span-2",
+    tone: "from-cyan/45 via-violet/15 to-transparent",
+  },
+  {
+    id: "plan",
+    title: "Plan Dashboard",
+    subtitle: "Financial planning tool with scenario visualization",
+    href: "https://plan.golife.se",
+    layout: "col-span-1 row-span-1",
+    tone: "from-violet/45 via-violet/10 to-transparent",
+  },
+  {
+    id: "staff",
+    title: "Staff",
+    subtitle: "Presence, absence, and workplace status management",
+    href: "https://staff.golife.se",
+    layout: "col-span-1 row-span-1",
+    tone: "from-cyan/35 via-cyan/10 to-transparent",
+  },
+  {
+    id: "golife",
+    title: "GoLife",
+    subtitle: "Cloud products and consulting for practical workflows",
+    href: "https://golife.se",
+    layout: "col-span-1 row-span-1",
+    tone: "from-violet/35 via-cyan/20 to-transparent",
+  },
+  {
+    id: "zendy",
+    title: "Zendy",
+    subtitle: "Upcoming application - currently in development",
+    href: null,
+    layout: "col-span-2 row-span-1",
+    tone: "from-cyan/25 via-violet/25 to-transparent",
+  },
+];

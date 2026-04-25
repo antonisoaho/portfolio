@@ -74,7 +74,7 @@ const AboutDetails = () => {
         >
           <img
             className="w-full h-auto"
-            src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}/top-langs?username=antonisoaho&&role=OWNER,COLLABORATOR,ORGANIZATION_MEMBER&theme=transparent&hide_border=true&title_color=FEBE5B&icon_color=FEBE5B&text_bold=false`}
+            src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}/top-langs?username=antonisoaho&&role=OWNER,COLLABORATOR,ORGANIZATION_MEMBER&theme=transparent&hide_border=true&title_color=52E0FF&text_color=C9D8FF&icon_color=8C72FF&text_bold=false`}
             alt="Most used programming languages across Anton's GitHub activity."
             loading="lazy"
             decoding="async"
@@ -86,7 +86,7 @@ const AboutDetails = () => {
         <ItemLayout className={"col-span-full md:col-span-8 !p-0"}>
           <img
             className="w-full h-auto"
-            src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}?username=antonisoaho&&role=OWNER,COLLABORATOR,ORGANIZATION_MEMBER&theme=transparent&hide_border=true&title_color=FEBE5B&text_color=FFFFFF&icon_color=FEBE5B&text_bold=false`}
+            src={`${process.env.NEXT_PUBLIC_GITHUB_STATS_URL}?username=antonisoaho&&role=OWNER,COLLABORATOR,ORGANIZATION_MEMBER&theme=transparent&hide_border=true&title_color=52E0FF&text_color=DDE7FF&icon_color=8C72FF&text_bold=false`}
             alt="GitHub profile statistics for Anton Isoaho, including repositories and contribution metrics."
             loading="lazy"
             decoding="async"
@@ -112,7 +112,7 @@ const AboutDetails = () => {
         <ItemLayout className={"col-span-full md:col-span-6 !p-0"}>
           <img
             className="w-full h-auto"
-            src={`${process.env.NEXT_PUBLIC_GITHUB_STREAK_STATS_URL}?user=antonisoaho&theme=dark&background=EB545400&currStreakLabel=FEBE5B&ring=FEBE5B`}
+            src={`${process.env.NEXT_PUBLIC_GITHUB_STREAK_STATS_URL}?user=antonisoaho&theme=transparent&background=00000000&currStreakLabel=52E0FF&ring=8C72FF&fire=52E0FF&sideNums=DDE7FF&currStreakNum=DDE7FF&sideLabels=A2B4D9&dates=A2B4D9`}
             alt="GitHub contribution streak statistics for Anton Isoaho."
             loading="lazy"
             decoding="async"

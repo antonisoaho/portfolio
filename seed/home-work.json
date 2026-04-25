@@ -1,0 +1,56 @@
+[
+  {
+    "_id": "homeWork.lokkedin",
+    "_type": "homeWork",
+    "title": "LokkedIn",
+    "subtitle": "Focus app that blocks distractions with native controls",
+    "status": "live",
+    "href": "https://lokkedin.com/",
+    "layout": "col-span-2 row-span-2",
+    "tone": "from-cyan/45 via-violet/15 to-transparent",
+    "orderRank": 10
+  },
+  {
+    "_id": "homeWork.plan",
+    "_type": "homeWork",
+    "title": "Plan Dashboard",
+    "subtitle": "Financial planning tool with scenario visualization",
+    "status": "live",
+    "href": "https://plan.golife.se/",
+    "layout": "col-span-1 row-span-1",
+    "tone": "from-violet/45 via-violet/10 to-transparent",
+    "orderRank": 20
+  },
+  {
+    "_id": "homeWork.staff",
+    "_type": "homeWork",
+    "title": "Staff",
+    "subtitle": "Presence, absence, and workplace status management",
+    "status": "live",
+    "href": "https://staff.golife.se/",
+    "layout": "col-span-1 row-span-1",
+    "tone": "from-cyan/35 via-cyan/10 to-transparent",
+    "orderRank": 30
+  },
+  {
+    "_id": "homeWork.golife",
+    "_type": "homeWork",
+    "title": "GoLife",
+    "subtitle": "Cloud products and consulting for practical workflows",
+    "status": "live",
+    "href": "https://golife.se/",
+    "layout": "col-span-1 row-span-1",
+    "tone": "from-violet/35 via-cyan/20 to-transparent",
+    "orderRank": 40
+  },
+  {
+    "_id": "homeWork.zendy",
+    "_type": "homeWork",
+    "title": "Zendy",
+    "subtitle": "Upcoming application - currently in development",
+    "status": "upcoming",
+    "layout": "col-span-2 row-span-1",
+    "tone": "from-cyan/25 via-violet/25 to-transparent",
+    "orderRank": 50
+  }
+]

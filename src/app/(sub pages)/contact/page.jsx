@@ -1,15 +1,4 @@
 import Form from "@/components/contact/Form";
-import dynamic from "next/dynamic";
-
-const RenderModel = dynamic(() => import("@/components/RenderModel"), {
-  ssr: false,
-});
-const GlobeHologram = dynamic(
-  () => import("@/components/models/GlobeHologram"),
-  {
-    ssr: false,
-  }
-);
 export const metadata = {
   title: {
     template: "Anton Isoaho",
@@ -18,7 +7,7 @@ export const metadata = {
   description:
     "Contact Anton Isoaho for web app, SaaS, and cloud development focused on practical outcomes and clear user experience.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.svg",
   },
   openGraph: {
     title: "Contact | Anton Isoaho",
@@ -32,43 +21,43 @@ export const metadata = {
 
 export default function Contact() {
   return (
-    <>
-      <div
-        className="page-gradient-soft"
-        aria-hidden="true"
-      />
-
-      <section
-        aria-labelledby="contact-heading"
-        className="relative w-full flex flex-col items-center justify-center space-y-12 md:space-y-16 max-w-2xl mx-auto px-4"
-      >
-        <div className="flex flex-col items-center justify-center space-y-8 w-full text-center">
+    <section
+      aria-labelledby="contact-heading"
+      className="glass-panel relative mx-auto mt-4 w-full max-w-6xl px-4 py-9 sm:px-10 sm:py-11"
+    >
+      <div className="grid w-full gap-10 lg:grid-cols-[minmax(0,1fr)_min(100%,24rem)] lg:items-start lg:gap-x-14">
+        <header className="max-w-xl space-y-5 text-left">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-cyan/80">
+            Contact
+          </p>
           <h1
             id="contact-heading"
-            className="text-accent font-semibold text-4xl sm:text-5xl capitalize tracking-wide"
+            className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl"
           >
-            Get in Touch
+            Let&apos;s talk about your next build
           </h1>
-          <p className="font-light text-base sm:text-lg leading-relaxed tracking-wide max-w-prose">
-            Looking for a developer to turn ideas into practical digital
-            products?
-            <br />
-            <br />
-            I help teams build clear, reliable web apps and cloud solutions that
-            work in real day-to-day use.
-            <br />
-            <br />
-            Reach out and let&apos;s build something meaningful together.
-          </p>
+          <div className="space-y-4 text-base leading-relaxed text-foreground/75 sm:text-[17px]">
+            <p>
+              If you need a developer for a web app, internal tool, or cloud
+              setup, send a short note with what you&apos;re trying to ship and
+              when you&apos;d like to move.
+            </p>
+            <p className="text-foreground/60">
+              I usually reply within a couple of working days. For urgent work,
+              mention it in the message.
+            </p>
+          </div>
+        </header>
+        <div className="relative lg:pt-1">
+          <div
+            className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-cyan/12 via-transparent to-violet/10 opacity-80 sm:-inset-1"
+            aria-hidden
+          />
+          <div className="relative rounded-2xl border border-white/10 bg-background/40 p-5 sm:p-6">
+            <Form />
+          </div>
         </div>
-        <Form />
-      </section>
-
-      <div className="w-full sm:h-screen h-full lg:w-72 absolute top-28 lg:top-1/3 -translate-y-1/2 left-0 z-10">
-        <RenderModel>
-          <GlobeHologram />
-        </RenderModel>
       </div>
-    </>
+    </section>
   );
 }

@@ -6,20 +6,27 @@ import emailjs from "@emailjs/browser";
 import { Toaster, toast } from "sonner";
 import { motion, useReducedMotion } from "framer-motion";
 
+const fieldClass =
+  "w-full rounded-xl border border-white/15 bg-panel/35 px-4 py-3 text-[15px] text-foreground shadow-none outline-none transition-[border-color,box-shadow] placeholder:text-foreground/35 focus:border-cyan/45 focus:ring-1 focus:ring-cyan/35";
+
 const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.4,
-      delayChildren: 0.35,
+      staggerChildren: 0.06,
+      delayChildren: 0.08,
     },
   },
 };
 
 const item = {
-  hidden: { scale: 0 },
-  show: { scale: 1 },
+  hidden: { opacity: 0, y: 10 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 380, damping: 28 },
+  },
 };
 
 export default function Form() {
@@ -27,8 +34,11 @@ export default function Form() {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm();
+
+  const messageLen = watch("message")?.length ?? 0;
 
   const sendEmail = (params) => {
     const toastId = toast.loading("Sending your message...");
@@ -46,7 +56,7 @@ export default function Form() {
       )
       .then(
         () => {
-          toast.success("Your message have been sent!", {
+          toast.success("Your message has been sent.", {
             id: toastId,
           });
         },
@@ -76,15 +86,20 @@ export default function Form() {
         initial={shouldReduceMotion ? false : "hidden"}
         animate={shouldReduceMotion ? {} : "show"}
         onSubmit={handleSubmit(onSubmit)}
-        className="max-w-lg w-full flex flex-col items-center justify-center space-y-6"
+        className="flex w-full flex-col gap-6 text-left"
+        noValidate
       >
-        <motion.div variants={item} className="w-full">
-          <label htmlFor="name" className="mb-2 inline-block text-sm font-medium">
+        <motion.div variants={item} className="flex flex-col gap-1.5">
+          <label
+            htmlFor="name"
+            className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/50"
+          >
             Name
           </label>
           <input
             id="name"
             type="text"
+            autoComplete="name"
             placeholder="Your name"
             aria-invalid={errors.name ? "true" : "false"}
             aria-describedby={errors.name ? "name-error" : undefined}
@@ -95,26 +110,31 @@ export default function Form() {
                 message: "Name must be at least 3 characters long.",
               },
             })}
-            className="w-full p-3 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/70 custom-bg"
+            className={fieldClass}
           />
           {errors.name && (
             <span
               id="name-error"
               role="alert"
-              className="mt-2 inline-block self-start text-accent"
+              className="text-sm text-cyan"
             >
               {errors.name.message}
             </span>
           )}
         </motion.div>
 
-        <motion.div variants={item} className="w-full">
-          <label htmlFor="email" className="mb-2 inline-block text-sm font-medium">
+        <motion.div variants={item} className="flex flex-col gap-1.5">
+          <label
+            htmlFor="email"
+            className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/50"
+          >
             Email
           </label>
           <input
             id="email"
             type="email"
+            autoComplete="email"
+            inputMode="email"
             placeholder="you@example.com"
             aria-invalid={errors.email ? "true" : "false"}
             aria-describedby={errors.email ? "email-error" : undefined}
@@ -125,65 +145,87 @@ export default function Form() {
                 message: "Please enter a valid email address.",
               },
             })}
-            className="w-full p-3 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/70 custom-bg"
+            className={fieldClass}
           />
           {errors.email && (
             <span
               id="email-error"
               role="alert"
-              className="mt-2 inline-block self-start text-accent"
+              className="text-sm text-cyan"
             >
               {errors.email.message}
             </span>
           )}
         </motion.div>
 
-        <motion.div variants={item} className="w-full">
-          <label htmlFor="message" className="mb-2 inline-block text-sm font-medium">
-            Message
-          </label>
+        <motion.div variants={item} className="flex flex-col gap-1.5">
+          <div className="flex items-baseline justify-between gap-3">
+            <label
+              htmlFor="message"
+              className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/50"
+            >
+              Message
+            </label>
+            <span
+              className="tabular-nums text-[11px] text-foreground/40"
+              aria-live="polite"
+            >
+              {messageLen} / 500
+            </span>
+          </div>
           <textarea
             id="message"
-            placeholder="Tell me about your project..."
+            placeholder="What you're building, timeline, and how I can help..."
+            rows={5}
             aria-invalid={errors.message ? "true" : "false"}
-            aria-describedby={errors.message ? "message-error" : "message-help"}
+            aria-describedby={
+              errors.message
+                ? "message-error"
+                : "message-help"
+            }
             {...register("message", {
               required: "Message is required.",
               maxLength: {
                 value: 500,
-                message: "Max length of message is 500 characters.",
+                message: "Message can be at most 500 characters.",
               },
               minLength: {
                 value: 50,
-                message: "Min length of message is 50 characters.",
+                message: "Please write at least 50 characters so I can respond usefully.",
               },
             })}
-            className="w-full min-h-40 p-3 rounded-md shadow-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/70 custom-bg"
+            className={`${fieldClass} min-h-[9.5rem] resize-y`}
           />
           {!errors.message && (
-            <span
-              id="message-help"
-              className="mt-2 inline-block text-xs text-foreground/90"
-            >
-              Minimum 50 characters, maximum 500 characters.
-            </span>
+            <p id="message-help" className="text-xs leading-relaxed text-foreground/45">
+              A few sentences is enough: context, goals, and whether you want a
+              call or email reply.
+            </p>
           )}
           {errors.message && (
             <span
               id="message-error"
               role="alert"
-              className="mt-2 inline-block self-start text-accent"
+              className="text-sm text-cyan"
             >
               {errors.message.message}
             </span>
           )}
         </motion.div>
-        <motion.input
-          variants={item}
-          value="Send me a message!"
-          type="submit"
-          className="px-10 py-4 rounded-md shadow-lg bg-background border border-accent/30 border-solid hover:shadow-glass-sm backdrop-blur-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 cursor-pointer capitalize"
-        />
+        <motion.div variants={item} className="pt-1">
+          <motion.button
+            type="submit"
+            whileHover={
+              shouldReduceMotion ? undefined : { scale: 1.01 }
+            }
+            whileTap={
+              shouldReduceMotion ? undefined : { scale: 0.99 }
+            }
+            className="w-full rounded-xl border border-cyan/35 bg-gradient-to-r from-cyan/12 via-panel/60 to-violet/12 px-6 py-3.5 text-sm font-semibold uppercase tracking-[0.14em] text-foreground shadow-glass-card backdrop-blur-md transition-[border-color,box-shadow] hover:border-cyan/55 hover:shadow-glass-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan/50 sm:w-auto sm:min-w-[13rem] sm:self-end"
+          >
+            Send message
+          </motion.button>
+        </motion.div>
       </motion.form>
     </>
   );

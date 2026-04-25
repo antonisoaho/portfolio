@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seed:home-work": "node --env-file=.env.local scripts/seed-home-work.mjs",
+    "seed:home-work:cli": "bash -c 'set -a && [ -f .env.local ] && . ./.env.local && set +a && npx sanity documents create seed/home-work.json --replace'"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
