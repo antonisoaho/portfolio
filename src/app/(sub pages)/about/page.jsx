@@ -1,4 +1,5 @@
 import AboutDetails from "@/components/about";
+
 export const metadata = {
   title: {
     template: "Anton Isoaho | About",
@@ -27,7 +28,7 @@ export const metadata = {
   },
 };
 
-export default function Home() {
+export default function AboutPage() {
   return (
     <div className="mx-auto w-full max-w-6xl">
       <div className="glass-panel mx-auto mt-4 max-w-3xl p-7 text-center sm:p-10">

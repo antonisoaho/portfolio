@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * This configuration is used to for the Sanity Studio that’s mounted on the `\src\app\studio\[[...tool]]\page.jsx` route
+ * Sanity Studio is mounted at `/studio` via `src/app/studio/[[...tool]]/page.jsx`.
  */
 
 import { visionTool } from "@sanity/vision";

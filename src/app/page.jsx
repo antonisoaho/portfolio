@@ -7,7 +7,7 @@ import Form from "@/components/contact/Form";
 export const metadata = {
   title: {
     template: "Anton Isoaho",
-    default: "Anton Isoaho | Next.js Portfolio",
+    default: "Anton Isoaho | Portfolio",
   },
   description:
     "Portfolio of Anton Isoaho, focused on practical software, clear workflows, and user-first cloud products.",
@@ -29,27 +29,29 @@ export default function Home() {
     <SiteShell>
       <section
         aria-labelledby="hero-heading"
-        className="mx-auto flex w-full max-w-3xl flex-col items-center gap-6 pt-8 text-center sm:pt-12"
+        className="flex min-h-[calc(100dvh-5.5rem)] w-full flex-col justify-center sm:min-h-[calc(100dvh-6rem)]"
       >
-        <span className="glass-panel inline-flex items-center rounded-full px-4 py-1 text-xs uppercase tracking-[0.24em] text-cyan">
-          Software engineer · Product builder
-        </span>
-        <h1
-          id="hero-heading"
-          className="text-balance text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
-        >
-          Building Digital Experiences
-        </h1>
-        <p className="max-w-2xl text-base text-foreground/80 sm:text-lg">
-          I build practical web apps, SaaS products, and cloud systems that make
-          work clearer, faster, and easier to trust.
-        </p>
-        <Link
-          href="#work"
-          className="inline-flex rounded-full border border-cyan/55 bg-cyan/10 px-6 py-3 text-sm font-semibold text-foreground shadow-glass-glow transition hover:bg-cyan/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        >
-          View Latest Projects
-        </Link>
+        <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-6 px-4 text-center sm:px-6">
+          <span className="glass-panel inline-flex items-center rounded-full px-4 py-1 text-xs uppercase tracking-[0.24em] text-cyan">
+            Software engineer · Product builder
+          </span>
+          <h1
+            id="hero-heading"
+            className="w-full text-balance text-center text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-7xl"
+          >
+            Building Digital Experiences
+          </h1>
+          <p className="mx-auto w-full max-w-2xl text-center text-base text-foreground/80 sm:text-lg">
+            I build practical web apps, SaaS products, and cloud systems that make
+            work clearer, faster, and easier to trust.
+          </p>
+          <Link
+            href="#work"
+            className="inline-flex rounded-full border border-cyan/55 bg-cyan/10 px-6 py-3 text-sm font-semibold text-foreground shadow-glass-glow transition hover:bg-cyan/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            View Latest Projects
+          </Link>
+        </div>
       </section>
 
       <section
@@ -76,7 +78,9 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/25 to-transparent" />
               <div className="relative z-10 flex h-full flex-col justify-end">
-                <h3 className="text-lg font-semibold text-foreground">{project.title}</h3>
+                <h3 className="text-lg font-semibold text-foreground">
+                  {project.title}
+                </h3>
                 <p className="text-sm text-foreground/80">{project.subtitle}</p>
                 {project.href ? (
                   <Link

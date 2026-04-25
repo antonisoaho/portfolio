@@ -52,7 +52,7 @@ export default function Form() {
           limitRate: {
             throttle: 5000,
           },
-        }
+        },
       )
       .then(
         () => {
@@ -60,11 +60,11 @@ export default function Form() {
             id: toastId,
           });
         },
-        (error) => {
+        () => {
           toast.error("Something went wrong, please try again later!", {
             id: toastId,
           });
-        }
+        },
       );
   };
 
@@ -179,9 +179,7 @@ export default function Form() {
             rows={5}
             aria-invalid={errors.message ? "true" : "false"}
             aria-describedby={
-              errors.message
-                ? "message-error"
-                : "message-help"
+              errors.message ? "message-error" : "message-help"
             }
             {...register("message", {
               required: "Message is required.",
@@ -191,13 +189,17 @@ export default function Form() {
               },
               minLength: {
                 value: 50,
-                message: "Please write at least 50 characters so I can respond usefully.",
+                message:
+                  "Please write at least 50 characters so I can respond usefully.",
               },
             })}
             className={`${fieldClass} min-h-[9.5rem] resize-y`}
           />
           {!errors.message && (
-            <p id="message-help" className="text-xs leading-relaxed text-foreground/45">
+            <p
+              id="message-help"
+              className="text-xs leading-relaxed text-foreground/45"
+            >
               A few sentences is enough: context, goals, and whether you want a
               call or email reply.
             </p>
@@ -215,12 +217,8 @@ export default function Form() {
         <motion.div variants={item} className="pt-1">
           <motion.button
             type="submit"
-            whileHover={
-              shouldReduceMotion ? undefined : { scale: 1.01 }
-            }
-            whileTap={
-              shouldReduceMotion ? undefined : { scale: 0.99 }
-            }
+            whileHover={shouldReduceMotion ? undefined : { scale: 1.01 }}
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.99 }}
             className="w-full rounded-xl border border-cyan/35 bg-gradient-to-r from-cyan/12 via-panel/60 to-violet/12 px-6 py-3.5 text-sm font-semibold uppercase tracking-[0.14em] text-foreground shadow-glass-card backdrop-blur-md transition-[border-color,box-shadow] hover:border-cyan/55 hover:shadow-glass-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan/50 sm:w-auto sm:min-w-[13rem] sm:self-end"
           >
             Send message

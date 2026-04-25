@@ -1,4 +1,5 @@
 import Form from "@/components/contact/Form";
+
 export const metadata = {
   title: {
     template: "Anton Isoaho",

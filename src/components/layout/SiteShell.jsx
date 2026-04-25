@@ -8,7 +8,9 @@ const SiteShell = ({ children, contentClassName = "" }) => {
       <div className="mesh-overlay" aria-hidden="true" />
       <div className="relative z-10 flex min-h-screen flex-col">
         <SiteHeader />
-        <main className={`mx-auto w-full max-w-6xl flex-1 px-4 pb-8 pt-8 sm:px-6 ${contentClassName}`}>
+        <main
+          className={`mx-auto w-full max-w-6xl flex-1 px-4 pb-8 sm:px-6 ${contentClassName}`}
+        >
           {children}
         </main>
         <SiteFooter />
