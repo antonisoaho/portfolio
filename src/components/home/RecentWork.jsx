@@ -13,7 +13,7 @@ export default async function RecentWork() {
       <section
         id="work"
         aria-labelledby="work-heading"
-        className="anchor-section mx-auto mt-16 w-full max-w-5xl"
+        className="anchor-section mx-auto mt-16 w-full"
       >
         <h2
           id="work-heading"
@@ -32,7 +32,7 @@ export default async function RecentWork() {
     <section
       id="work"
       aria-labelledby="work-heading"
-      className="anchor-section mx-auto mt-16 w-full max-w-5xl"
+      className="anchor-section mx-auto mt-16 w-full"
     >
       <h2
         id="work-heading"
