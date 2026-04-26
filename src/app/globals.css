@@ -149,21 +149,6 @@
   }
 }
 
-@keyframes star-tingle {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 rgba(var(--accent), 0.35);
-  }
-  50% {
-    transform: scale(1.15);
-    box-shadow: 0 0 8px 40px rgba(var(--accent), 0);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(var(--accent), 0.35);
-  }
-}
-
 @keyframes gradient-drift {
   0% {
     transform: translate3d(-2%, -1%, 0) scale(1);

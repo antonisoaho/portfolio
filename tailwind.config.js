@@ -20,8 +20,6 @@ module.exports = {
         violet: "rgb(var(--violet))",
       },
       backgroundImage: {
-        "star-radial":
-          "radial-gradient(50% 50% at 50% 50%, rgba(253, 255, 240, 0.42) 0%, rgba(217,217,217, 0) 100%)",
         "site-gradient":
           "radial-gradient(125% 110% at 50% -10%, rgba(36, 94, 164, 0.42) 0%, rgba(14, 18, 30, 0.96) 58%), radial-gradient(78% 74% at 15% 15%, rgba(38, 191, 255, 0.24) 0%, rgba(38, 191, 255, 0) 64%), radial-gradient(72% 65% at 85% 20%, rgba(130, 111, 255, 0.24) 0%, rgba(130, 111, 255, 0) 66%), radial-gradient(62% 55% at 50% 95%, rgba(6, 11, 22, 0.95) 0%, rgba(6, 11, 22, 1) 70%)",
         "site-gradient-soft":

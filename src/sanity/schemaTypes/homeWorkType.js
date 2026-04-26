@@ -41,17 +41,34 @@ export const homeWorkType = defineType({
     }),
     defineField({
       name: "href",
-      title: "Website URL",
+      title: "URL",
       type: "url",
-      description: "Required for live cards. Leave empty for upcoming projects.",
+      description:
+        "Required for live cards (product site, GitHub, etc.). Leave empty for upcoming.",
       validation: (rule) =>
         rule.custom((value, context) => {
           const status = context.document?.status;
           if (status === "live" && !value) {
-            return "Live projects must have a website URL.";
+            return "Live projects must have a URL.";
           }
           return true;
         }),
+    }),
+    defineField({
+      name: "linkKind",
+      title: "Primary link type",
+      type: "string",
+      description:
+        "Controls the button label on the home page (only for live cards with a URL).",
+      options: {
+        list: [
+          { title: "Website (button: Visit Website)", value: "website" },
+          { title: "Repository (button: Repository)", value: "repository" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "website",
+      hidden: ({ document }) => document?.status === "upcoming",
     }),
     defineField({
       name: "image",
