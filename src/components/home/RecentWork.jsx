@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getHomeWork } from "@/sanity/lib/homeWork";
+import { portfolioProjectClass } from "@/lib/portfolioGrid";
 
 function linkButtonLabel(linkKind) {
   return linkKind === "repository" ? "Repository" : "Visit Website";
@@ -41,13 +42,13 @@ export default async function RecentWork() {
         Recent Work
       </h2>
 
-      <div className="grid auto-rows-[156px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {projects.map((project) => {
+      <div className="portfolio-grid grid grid-cols-1 grid-flow-dense gap-4 auto-rows-[minmax(148px,auto)] sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6 lg:auto-rows-[minmax(200px,min(28vh,280px))]">
+        {projects.map((project, index) => {
           const cta = linkButtonLabel(project.linkKind);
           return (
             <article
               key={project._id}
-              className={`glass-panel group relative overflow-hidden p-5 ${project.layout}`}
+              className={`glass-panel group relative min-h-0 overflow-hidden p-5 col-span-1 ${portfolioProjectClass(index)}`}
             >
               {project.wip ? (
                 <div
