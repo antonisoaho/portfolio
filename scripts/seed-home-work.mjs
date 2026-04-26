@@ -41,6 +41,7 @@ const seeds = [
     title: "LokkedIn",
     subtitle: "Focus app that blocks distractions with native controls",
     status: "live",
+    wip: true,
     href: "https://lokkedin.com/",
     layout: "col-span-2 row-span-2",
     tone: "from-cyan/45 via-violet/15 to-transparent",

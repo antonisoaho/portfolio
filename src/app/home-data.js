@@ -4,6 +4,7 @@ export const featuredProjects = [
     title: "LokkedIn",
     subtitle: "Focus app that blocks distractions with native controls",
     href: "https://lokkedin.com",
+    wip: true,
     layout: "col-span-2 row-span-2",
     tone: "from-cyan/45 via-violet/15 to-transparent",
   },

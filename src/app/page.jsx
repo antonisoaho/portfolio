@@ -72,6 +72,14 @@ export default function Home() {
               key={project.id}
               className={`glass-panel group relative overflow-hidden p-5 ${project.layout}`}
             >
+              {project.wip ? (
+                <div
+                  className="absolute inset-x-0 top-0 z-30 border-b border-amber-200/35 bg-gradient-to-r from-amber-500/90 via-amber-400/85 to-amber-500/90 px-3 py-1.5 text-center text-[10px] font-bold uppercase tracking-[0.22em] text-background shadow-[0_6px_28px_rgba(245,158,11,0.28)]"
+                  role="status"
+                >
+                  Work in progress
+                </div>
+              ) : null}
               <div
                 aria-hidden="true"
                 className={`absolute inset-0 bg-gradient-to-br ${project.tone}`}

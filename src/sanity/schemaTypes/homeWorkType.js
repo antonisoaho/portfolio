@@ -32,6 +32,14 @@ export const homeWorkType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "wip",
+      title: "Work in progress",
+      type: "boolean",
+      description:
+        "Shows a WIP bar on the card when the product is still being finished.",
+      initialValue: false,
+    }),
+    defineField({
       name: "href",
       title: "Website URL",
       type: "url",
@@ -103,10 +111,12 @@ export const homeWorkType = defineType({
       title: "title",
       subtitle: "subtitle",
       status: "status",
+      wip: "wip",
       media: "image",
     },
-    prepare({ title, subtitle, status, media }) {
-      const statusTag = status === "upcoming" ? "Upcoming" : "Live";
+    prepare({ title, subtitle, status, wip, media }) {
+      const statusTag =
+        status === "upcoming" ? "Upcoming" : wip ? "WIP" : "Live";
       return {
         title,
         subtitle: `${statusTag} · ${subtitle ?? ""}`,
