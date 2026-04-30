@@ -28,7 +28,7 @@ const SiteHeader = () => {
                 </Link>
               </li>
             ))}
-            <li>
+            <li className="hidden sm:block">
               <Link
                 href={resumeLink.href}
                 target="_blank"
