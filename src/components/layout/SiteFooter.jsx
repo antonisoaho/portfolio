@@ -23,7 +23,7 @@ const SiteFooter = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-foreground/75 transition hover:border-cyan/60 hover:text-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-foreground/15 text-foreground/75 transition hover:border-cyan/60 hover:text-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   aria-label={`${link.label} (opens in new tab)`}
                 >
                   <Icon className="h-4 w-4" />

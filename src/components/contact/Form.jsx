@@ -7,7 +7,7 @@ import { Toaster, toast } from "sonner";
 import { motion, useReducedMotion } from "framer-motion";
 
 const fieldClass =
-  "w-full rounded-xl border border-white/15 bg-panel/35 px-4 py-3 text-[15px] text-foreground shadow-none outline-none transition-[border-color,box-shadow] placeholder:text-foreground/35 focus:border-cyan/45 focus:ring-1 focus:ring-cyan/35";
+  "w-full rounded-xl border border-foreground/12 bg-panel/80 px-4 py-3 text-[15px] text-foreground shadow-none outline-none transition-[border-color,box-shadow] placeholder:text-foreground/35 focus:border-cyan/45 focus:ring-1 focus:ring-cyan/35";
 
 const container = {
   hidden: { opacity: 0 },

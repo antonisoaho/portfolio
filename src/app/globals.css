@@ -4,13 +4,13 @@
 
 @layer base {
   :root {
-    --background: 9 12 22;
-    --foreground: 234 242 255;
-    --muted: 154 169 194;
-    --accent: 116 215 255;
-    --panel: 22 30 52;
-    --cyan: 82 224 255;
-    --violet: 140 114 255;
+    --background: 217 242 230;
+    --foreground: 27 77 62;
+    --muted: 90 125 114;
+    --accent: 45 90 76;
+    --panel: 255 255 255;
+    --cyan: 45 90 76;
+    --violet: 61 130 105;
   }
 
   html {
@@ -35,21 +35,20 @@
     inset: -18%;
     background-image: linear-gradient(
         130deg,
-        rgba(var(--cyan), 0.16) 0%,
+        rgba(var(--cyan), 0.14) 0%,
         rgba(var(--cyan), 0) 42%
       ),
       linear-gradient(
         310deg,
-        rgba(var(--violet), 0.18) 0%,
+        rgba(var(--violet), 0.12) 0%,
         rgba(var(--violet), 0) 40%
       ),
       linear-gradient(
         40deg,
-        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.5) 0%,
         rgba(255, 255, 255, 0) 32%
       );
-    mix-blend-mode: screen;
-    filter: blur(74px) saturate(1.2);
+    filter: blur(74px) saturate(1.1);
     animation: gradient-drift 30s ease-in-out infinite alternate;
     transform-origin: 50% 50%;
   }
@@ -60,23 +59,23 @@
     inset: 0;
     background-image: linear-gradient(
         112deg,
-        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.35) 0%,
         rgba(255, 255, 255, 0) 44%
       ),
       linear-gradient(
         304deg,
-        rgba(98, 222, 255, 0.14) 0%,
-        rgba(98, 222, 255, 0) 40%
+        rgba(var(--violet), 0.1) 0%,
+        rgba(var(--violet), 0) 40%
       ),
       linear-gradient(
         214deg,
-        rgba(126, 107, 255, 0.15) 0%,
-        rgba(126, 107, 255, 0) 42%
+        rgba(var(--cyan), 0.08) 0%,
+        rgba(var(--cyan), 0) 42%
       ),
       radial-gradient(
         60% 46% at 50% 98%,
-        rgba(3, 7, 15, 0.7) 0%,
-        rgba(3, 7, 15, 0) 72%
+        rgba(var(--foreground), 0.04) 0%,
+        rgba(var(--foreground), 0) 72%
       );
     animation: glow-breathe 14s ease-in-out infinite;
   }
@@ -93,21 +92,20 @@
     inset: -14%;
     background-image: radial-gradient(
         45% 34% at 20% 22%,
-        rgba(var(--cyan), 0.16) 0%,
+        rgba(var(--cyan), 0.12) 0%,
         rgba(var(--cyan), 0) 70%
       ),
       radial-gradient(
         42% 36% at 80% 22%,
-        rgba(var(--violet), 0.16) 0%,
+        rgba(var(--violet), 0.1) 0%,
         rgba(var(--violet), 0) 70%
       ),
       radial-gradient(
         56% 40% at 50% 85%,
-        rgba(5, 9, 18, 0.64) 0%,
-        rgba(5, 9, 18, 0) 72%
+        rgba(var(--foreground), 0.03) 0%,
+        rgba(var(--foreground), 0) 72%
       );
-    mix-blend-mode: screen;
-    filter: blur(62px) saturate(1.06);
+    filter: blur(62px) saturate(1.04);
     animation: gradient-drift 28s ease-in-out infinite alternate-reverse;
   }
 
@@ -117,23 +115,23 @@
     inset: 0;
     background-image: linear-gradient(
         125deg,
-        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.3) 0%,
         rgba(255, 255, 255, 0) 42%
       ),
       linear-gradient(
         298deg,
-        rgba(var(--violet), 0.08) 0%,
+        rgba(var(--violet), 0.06) 0%,
         rgba(var(--violet), 0) 45%
       );
     animation: glow-breathe 18s ease-in-out infinite;
   }
 
   .custom-bg {
-    @apply bg-panel/45 border border-white/20 border-solid backdrop-blur-[14px] shadow-glass-card;
+    @apply bg-panel/70 border border-foreground/10 border-solid backdrop-blur-[14px] shadow-glass-card;
   }
 
   .glass-header {
-    @apply bg-panel/40 border border-white/25 backdrop-blur-xl shadow-glass-glow rounded-3xl;
+    @apply bg-panel/75 border border-foreground/10 backdrop-blur-xl shadow-glass-glow rounded-3xl;
   }
 
   .glass-panel {
@@ -141,7 +139,7 @@
   }
 
   .mesh-overlay {
-    @apply absolute inset-0 pointer-events-none bg-glass-mesh opacity-60;
+    @apply absolute inset-0 pointer-events-none bg-glass-mesh opacity-40;
   }
 
   .anchor-section {

@@ -73,7 +73,7 @@ export default async function RecentWork() {
                     href={project.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-flex w-fit rounded-full border border-white/35 bg-background/35 px-3 py-1.5 text-xs font-medium text-foreground transition group-hover:border-cyan/70 group-hover:text-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    className="mt-4 inline-flex w-fit rounded-full border border-foreground/20 bg-panel/60 px-3 py-1.5 text-xs font-medium text-foreground transition group-hover:border-cyan/70 group-hover:text-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                     aria-label={`${project.title}: ${cta} (opens in new tab)`}
                   >
                     {cta}

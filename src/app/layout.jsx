@@ -16,16 +16,14 @@ export const metadata = {
   description:
     "Portfolio of Anton Isoaho, a Swedish system developer building practical web apps, SaaS, and cloud software.",
   icons: {
-    icon: "/favicon.svg",
+    icon: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.svg" />
-      </head>
       <body
         className={clsx(
           inter.variable,

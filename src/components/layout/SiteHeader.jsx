@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { siteNavItems, resumeLink } from "@/app/site-nav";
 
@@ -12,9 +13,13 @@ const SiteHeader = () => {
           href="/"
           className="inline-flex items-center gap-2 rounded-full px-2.5 py-1.5 font-semibold tracking-wide text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
-          <span
-            aria-hidden="true"
-            className="h-2.5 w-2.5 rounded-full bg-cyan shadow-[0_0_16px_rgba(82,224,255,0.9)]"
+          <Image
+            src="/favicon.png"
+            alt=""
+            width={28}
+            height={28}
+            className="h-7 w-7 rounded-lg"
+            priority
           />
           Isoaho
         </Link>
@@ -33,7 +38,7 @@ const SiteHeader = () => {
                 href={resumeLink.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-2 inline-flex rounded-full border border-white/35 px-4 py-2 text-sm font-medium text-foreground transition hover:border-cyan/60 hover:text-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="ml-2 inline-flex rounded-full border border-foreground/20 px-4 py-2 text-sm font-medium text-foreground transition hover:border-cyan/60 hover:text-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 aria-label="Resume (opens in new tab)"
               >
                 {resumeLink.label}

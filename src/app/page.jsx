@@ -12,7 +12,8 @@ export const metadata = {
   description:
     "Portfolio of Anton Isoaho, focused on practical software, clear workflows, and user-first cloud products.",
   icons: {
-    icon: "/favicon.svg",
+    icon: "/favicon.png",
+    apple: "/favicon.png",
   },
   openGraph: {
     title: "Anton Isoaho",
@@ -110,7 +111,7 @@ export default function Home() {
                 className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-cyan/12 via-transparent to-violet/10 opacity-80 sm:-inset-1"
                 aria-hidden
               />
-              <div className="relative rounded-2xl border border-white/10 bg-background/40 p-5 sm:p-6">
+              <div className="relative rounded-2xl border border-foreground/10 bg-panel/50 p-5 sm:p-6">
                 <Form />
               </div>
             </div>
