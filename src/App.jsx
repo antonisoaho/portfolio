@@ -1,3 +1,6 @@
+import { useRef } from "react";
+import VariableProximity from "./components/VariableProximity.jsx";
+
 function ExternalLinkIcon() {
   return (
     <svg
@@ -19,10 +22,29 @@ function ExternalLinkIcon() {
 }
 
 export default function App() {
+  const containerRef = useRef(null);
+
   return (
-    <div id="wrapper">
+    <div id="wrapper" ref={containerRef} style={{ position: "relative" }}>
       <h1>
-        anton<strong> isoaho</strong>.
+        <VariableProximity
+          label="anton"
+          className="name-proximity"
+          fromFontVariationSettings="'wght' 400, 'opsz' 9"
+          toFontVariationSettings="'wght' 1000, 'opsz' 40"
+          containerRef={containerRef}
+          radius={120}
+          falloff="linear"
+        />{" "}
+        <VariableProximity
+          label="isoaho."
+          className="name-proximity name-proximity--surname"
+          fromFontVariationSettings="'wght' 700, 'opsz' 9"
+          toFontVariationSettings="'wght' 1000, 'opsz' 40"
+          containerRef={containerRef}
+          radius={120}
+          falloff="linear"
+        />
       </h1>
       <p>
         <a

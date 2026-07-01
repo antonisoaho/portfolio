@@ -26,14 +26,13 @@ body {
 
 h1 {
   font-size: clamp(2.5rem, 10vw, 5rem);
-  font-weight: 700;
   text-align: center;
   line-height: 1.15;
   margin: 0;
 }
 
-h1 strong {
-  font-weight: 900;
+.name-proximity {
+  letter-spacing: 0;
 }
 
 p {
